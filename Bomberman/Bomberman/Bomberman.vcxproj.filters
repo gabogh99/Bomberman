@@ -26,5 +26,8 @@
     <ClInclude Include="Escenario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Controladora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
