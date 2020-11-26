@@ -58,14 +58,16 @@ public:
 
 	}
 
-	void PintarBase(Graphics^ g, Bitmap^ bmpBase) {
+	void PintarBase(Graphics^g, Bitmap^bmpBase) {
 
 		int X, Y = 0;
 
 		for (int i = 0; i < filas; i++)
 		{
-			for (int j = 0; j < columnas; i++)
+			for (int j = 0; j < columnas; j++)
 			{
+
+				X = 0;
 				if (matriz[i][j] == 0 || matriz[i][j] == 2)
 
 					g->DrawImage(bmpBase, X, Y, 50, 50);
@@ -78,13 +80,15 @@ public:
 
 	}
 
-	void PintarMatriz(Graphics^ g, Bitmap^ bmpSolido, Bitmap^ bmpDestruible) {
+	void PintarMatriz(Graphics^g, Bitmap^bmpSolido, Bitmap^bmpDestruible) {
 
 		int X, Y = 0;
 
 		for (int i = 0; i < filas; i++)
 		{
-			for (int j = 0; j < columnas; i++)
+
+			X = 0;
+			for (int j = 0; j < columnas; j++)
 			{
 				if (matriz[i][j] == 1)
 

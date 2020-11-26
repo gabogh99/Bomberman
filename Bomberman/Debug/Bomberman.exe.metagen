@@ -1,3 +1,4 @@
+  Bomberman.Juego.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly Bomberman, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -16,3 +17,8 @@ Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c5619
 Class Bomberman.Juego: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    CControladora* oControladora : Public
+    System.Drawing.Bitmap bmpSuelo : Public
+    System.Drawing.Bitmap bmpSolido : Public
+    System.Drawing.Bitmap bmpDestruible : Public

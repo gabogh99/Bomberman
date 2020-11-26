@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Controladora.h"
 namespace Bomberman {
 
 	using namespace System;
@@ -15,6 +15,13 @@ namespace Bomberman {
 	public ref class Juego : public System::Windows::Forms::Form
 	{
 	public:
+
+		CControladora* oControladora = new CControladora();
+
+		Bitmap^ bmpSuelo = gcnew Bitmap("Imagenes\\bmpSuelo.png");
+		Bitmap^ bmpSolido = gcnew Bitmap("Imagenes\\bmpSolido.png");
+		Bitmap^ bmpDestruible = gcnew Bitmap("Imagenes\\bmpDestruible.png");
+
 		Juego(void)
 		{
 			InitializeComponent();
@@ -34,12 +41,15 @@ namespace Bomberman {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Timer^ timer1;
+	protected:
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -48,12 +58,43 @@ namespace Bomberman {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Juego";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->components = (gcnew System::ComponentModel::Container());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->SuspendLayout();
+			// 
+			// timer1
+			// 
+			this->timer1->Enabled = true;
+			this->timer1->Tick += gcnew System::EventHandler(this, &Juego::timer1_Tick);
+			// 
+			// Juego
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(284, 261);
+			this->Name = L"Juego";
+			this->Text = L"Juego";
+			this->Load += gcnew System::EventHandler(this, &Juego::Juego_Load);
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
+	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+
+		Graphics ^g = this->CreateGraphics();
+		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
+		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
+
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido);
+		buffer->Render(g);
+		delete buffer, espacio, g;
+
+	}
+
+
+	private: System::Void Juego_Load(System::Object^ sender, System::EventArgs^ e) {
+
+		oControladora->CambiarNivel();
+	}
 	};
 }
