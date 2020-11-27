@@ -11,7 +11,7 @@ class CEscenario {
 
 public:
 	CEscenario() {
-		matriz = new int* [filas];
+		matriz = new int*[filas];
 	}
 
 	~CEscenario() {}
@@ -24,7 +24,7 @@ public:
 
 			matriz[i] = new int[columnas];
 
-		}
+		} 
 
 		for (int i = 0; i < filas; i++)
 		{
@@ -43,7 +43,7 @@ public:
 						if ((i == 1 && (j == 1 || j == 2)) || (j == 1 && i == 2) || (i == filas - 2 && (j == columnas - 3 || j == columnas - 2)) || (i == filas - 3 && j == columnas - 2)) // zona movible
 							matriz[i][j] = 0;
 
-						else // ZONAS DESTRUIBLES O NO 
+						else // ZONAS DESTRUIBLES O NO (dependiendo de su valor)
 						{
 							matriz[i][j] = rand() % 2 + 2;
 						}
@@ -64,10 +64,11 @@ public:
 
 		for (int i = 0; i < filas; i++)
 		{
+			X = 0;
 			for (int j = 0; j < columnas; j++)
 			{
 
-				X = 0;
+				
 				if (matriz[i][j] == 0 || matriz[i][j] == 2)
 
 					g->DrawImage(bmpBase, X, Y, 50, 50);
@@ -118,7 +119,7 @@ public:
 
 private:
 
-	int** matriz;
+	int **matriz;
 
 };
 
