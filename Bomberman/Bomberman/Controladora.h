@@ -14,6 +14,8 @@ public:
 
 	}
 
+
+
 	~CControladora() {}
 
 	void CambiarNivel() {
@@ -22,11 +24,11 @@ public:
 
 	}
 
-	void dibujar(Graphics^ g, Bitmap^ bmpBase, Bitmap^ bmpSolido, Bitmap^ bmpDestruible, Bitmap^bmpJugador) {
+	void dibujar(Graphics^ g, Bitmap^ bmpBase, Bitmap^ bmpSolido, Bitmap^ bmpDestruible, Bitmap^ bmpJugador) {
 
 		oEscenario->PintarBase(g, bmpBase);
 		oEscenario->PintarMatriz(g, bmpSolido, bmpDestruible);
-		oJugador->moverJugador(g, bmpJugador);
+		oJugador->moverJugador(g, bmpJugador, oEscenario->getmatriz());
 	}
 
 	CJugador* getoJugador() {
@@ -35,8 +37,8 @@ public:
 
 private:
 
-	CEscenario *oEscenario;
-	CJugador *oJugador;
+	CEscenario* oEscenario;
+	CJugador* oJugador;
 
 };
 
