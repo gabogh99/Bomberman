@@ -1,5 +1,6 @@
 ﻿  Juego.cpp
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(21,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(21,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(141,1): warning C4065: switch statement contains 'default' but no 'case' labels
   Juego.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Bomberman.vcxproj -> C:\Users\Familia\source\repos\Bomberman\Debug\Bomberman.exe

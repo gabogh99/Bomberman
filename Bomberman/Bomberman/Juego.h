@@ -21,9 +21,11 @@ namespace Bomberman {
 		Bitmap^ bmpSuelo = gcnew Bitmap("Imagenes\\bmpSuelo.png");
 		Bitmap^ bmpSolido = gcnew Bitmap("Imagenes\\bmpSolido.png");
 		Bitmap^ bmpDestruible = gcnew Bitmap("Imagenes\\bmpDestruible.png");
+		Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Jugador.png");
 
 		Juego(void)
 		{
+			bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -75,6 +77,8 @@ namespace Bomberman {
 			this->Name = L"Juego";
 			this->Text = L"Juego";
 			this->Load += gcnew System::EventHandler(this, &Juego::Juego_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Juego::Juego_KeyDown);
+			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Juego::UltimaTeclaPresionada);
 			this->ResumeLayout(false);
 
 		}
@@ -85,7 +89,7 @@ namespace Bomberman {
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 
-		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido);
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador);
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
@@ -96,5 +100,47 @@ namespace Bomberman {
 
 		oControladora->CambiarNivel();
 	}
-	};
+	private: System::Void Juego_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+
+		switch (e->KeyCode)
+		{
+
+		case Keys::Up:
+
+			oControladora->getoJugador()->setDireccion(Direcciones::Arriba);
+			break;
+
+		case Keys::Down:
+
+			oControladora->getoJugador()->setDireccion(Direcciones::Abajo);
+			break;
+
+		case Keys::Left:
+
+			oControladora->getoJugador()->setDireccion(Direcciones::Izquierda);
+			break;
+
+		case Keys::Right:
+
+			oControladora->getoJugador()->setDireccion(Direcciones::Derecha);
+			break;
+
+		default:
+			break;
+		}
+
+	}
+	private: System::Void UltimaTeclaPresionada(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+
+		switch (e->KeyCode)
+		{
+		default:
+
+			oControladora->getoJugador()->setDireccion(Direcciones::Ninguna);
+			break;
+		}
+
+
+	}
+};
 }
