@@ -146,7 +146,7 @@ namespace Bomberman {
 
 
 	private: System::Void Juego_Load(System::Object^ sender, System::EventArgs^ e) {
-
+		lbNivel->Text = "Nivel: " + oControladora->getNivel();
 		oControladora->CambiarNivel();
 	}
 	private: System::Void Juego_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
