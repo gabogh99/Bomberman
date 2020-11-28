@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrBombas.h" />
+    <ClInclude Include="ArrMejoras.h" />
     <ClInclude Include="Bomba.h" />
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="Escenario.h" />
@@ -131,6 +132,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Jugador.h" />
+    <ClInclude Include="Mejora.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Juego.resx">

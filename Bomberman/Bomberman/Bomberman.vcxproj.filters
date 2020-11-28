@@ -38,5 +38,11 @@
     <ClInclude Include="ArrBombas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mejora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrMejoras.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

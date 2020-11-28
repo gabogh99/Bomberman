@@ -14,7 +14,9 @@ namespace Bomberman {
 	/// </summary>
 	public ref class Juego : public System::Windows::Forms::Form
 	{
-	public:
+
+
+	private:
 
 		CControladora* oControladora = new CControladora();
 
@@ -25,10 +27,13 @@ namespace Bomberman {
 		Bitmap^ bmpBomba = gcnew Bitmap("Imagenes\\bomba.png");
 		Bitmap^ bmpExplosion = gcnew Bitmap("Imagenes\\explosion.png");
 
-
+	public:
 		Juego(void)
 		{
 			bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
+			bmpBomba->MakeTransparent(bmpBomba->GetPixel(0, 0));
+			bmpExplosion->MakeTransparent(bmpExplosion->GetPixel(0, 0));
+
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
