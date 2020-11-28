@@ -32,5 +32,11 @@
     <ClInclude Include="Jugador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bomba.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrBombas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -123,6 +123,8 @@
     <ClCompile Include="Juego.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArrBombas.h" />
+    <ClInclude Include="Bomba.h" />
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="Escenario.h" />
     <ClInclude Include="Juego.h">

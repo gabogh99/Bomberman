@@ -31,6 +31,21 @@ public:
 
 	~CJugador() {}
 
+	int getX() { return x + 2 * 3; }
+	int getY() { return y + 15 * 3 + dy; }
+
+	void setDX(int dx) {
+		this->dx = dx;
+	}
+
+	void setDY(int dy) {
+		this->dy = dy;
+	}
+
+	Direcciones getDireccion() {
+		return direccion;
+	}
+
 	void setDireccion(Direcciones direccion) {
 		this->direccion = direccion;
 
@@ -63,10 +78,10 @@ public:
 	void dibujarJugador(Graphics^g, Bitmap^bmpJugador, int **matriz){
 
 		CDI = Rectangle(x + 2 * 3 + dx, y + 15 * 3, (ancho - 4) * 3, (alto - 15) * 3);
-		CAA = Rectangle(x + 2 * 3, y + 15 * 3 + dy, (ancho - 4) * 3, (alto - 15) * 3);
+		g->DrawRectangle(Pens::Transparent, CDI);
 
-		g->DrawRectangle(Pens::Red, CDI);
-		g->DrawRectangle(Pens::Orange, CAA); 
+		CAA = Rectangle(x + 2 * 3, y + 15 * 3 + dy, (ancho - 4) * 3, (alto - 15) * 3);
+		g->DrawRectangle(Pens::Transparent, CAA);
 
 
 		ValidarMovimiento(matriz);;

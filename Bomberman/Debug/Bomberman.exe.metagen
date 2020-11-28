@@ -23,3 +23,5 @@ Class Bomberman.Juego: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     System.Drawing.Bitmap bmpSolido : Public
     System.Drawing.Bitmap bmpDestruible : Public
     System.Drawing.Bitmap bmpJugador : Public
+    System.Drawing.Bitmap bmpBomba : Public
+    System.Drawing.Bitmap bmpExplosion : Public

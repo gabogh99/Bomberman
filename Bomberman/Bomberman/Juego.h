@@ -22,6 +22,9 @@ namespace Bomberman {
 		Bitmap^ bmpSolido = gcnew Bitmap("Imagenes\\bmpSolido.png");
 		Bitmap^ bmpDestruible = gcnew Bitmap("Imagenes\\bmpDestruible.png");
 		Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Jugador.png");
+		Bitmap^ bmpBomba = gcnew Bitmap("Imagenes\\bomba.png");
+		Bitmap^ bmpExplosion = gcnew Bitmap("Imagenes\\explosion.png");
+
 
 		Juego(void)
 		{
@@ -73,7 +76,8 @@ namespace Bomberman {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(849, 750);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Name = L"Juego";
 			this->Text = L"Juego";
 			this->Load += gcnew System::EventHandler(this, &Juego::Juego_Load);
@@ -89,7 +93,7 @@ namespace Bomberman {
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 
-		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador);
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba,bmpExplosion );
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
@@ -134,6 +138,15 @@ namespace Bomberman {
 
 		switch (e->KeyCode)
 		{
+
+		case Keys::Space:
+				oControladora->agregarBomba();
+				
+				break;
+
+
+
+
 		default:
 
 			oControladora->getoJugador()->setDireccion(Direcciones::Ninguna);
