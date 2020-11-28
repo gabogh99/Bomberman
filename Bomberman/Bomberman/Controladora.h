@@ -3,7 +3,8 @@
 #include "Escenario.h"
 #include "Jugador.h"
 #include "ArrBombas.h"
-#include"ArrMejoras.h"
+#include "ArrMejoras.h"
+
 
 class CControladora {
 
@@ -15,6 +16,7 @@ public:
 		oJugador = new CJugador(50, 50);
 		oArrBombas = new CArrBombas();
 		oArrMejoras = new CArrMejoras();
+		nivel = 1;
 
 	}
 
@@ -45,10 +47,22 @@ public:
 
 	}
 
+	void crear_enemigos_y_mejoras() {
 
+		oArrMejoras->crearMejoras();
 
-	CJugador* getoJugador() {
+	}
+
+	CJugador*getoJugador() {
 		return oJugador;
+	}
+
+	CArrMejoras* getoArrMejoras() {
+		return oArrMejoras;
+	}
+
+	int getNivel() {
+		return nivel;
 	}
 
 private:
@@ -56,7 +70,9 @@ private:
 	CEscenario*oEscenario;
 	CJugador*oJugador;
 	CArrBombas*oArrBombas;
-	CArrMejoras *oArrMejoras
+	CArrMejoras* oArrMejoras;
+
+	int nivel;
 };
 
 

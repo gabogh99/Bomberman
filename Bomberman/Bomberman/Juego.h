@@ -18,7 +18,7 @@ namespace Bomberman {
 
 	private:
 
-		CControladora* oControladora = new CControladora();
+		CControladora* oControladora;
 
 		Bitmap^ bmpSuelo = gcnew Bitmap("Imagenes\\bmpSuelo.png");
 		Bitmap^ bmpSolido = gcnew Bitmap("Imagenes\\bmpSolido.png");
@@ -26,15 +26,21 @@ namespace Bomberman {
 		Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Jugador.png");
 		Bitmap^ bmpBomba = gcnew Bitmap("Imagenes\\bomba.png");
 		Bitmap^ bmpExplosion = gcnew Bitmap("Imagenes\\explosion.png");
+		Bitmap^ bmpMejoras = gcnew Bitmap("Imagenes\\mejoras.png");
 
 	public:
 		Juego(void)
 		{
+
+			InitializeComponent();
+
+			oControladora = new CControladora();
+
 			bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
 			bmpBomba->MakeTransparent(bmpBomba->GetPixel(0, 0));
 			bmpExplosion->MakeTransparent(bmpExplosion->GetPixel(0, 0));
 
-			InitializeComponent();
+			
 			//
 			//TODO: Add the constructor code here
 			//
@@ -52,6 +58,9 @@ namespace Bomberman {
 			}
 		}
 	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Label^ lbNivel;
+	private: System::Windows::Forms::ProgressBar^ pbCarga;
+	private: System::Windows::Forms::Timer^ trCarga;
 	protected:
 	private: System::ComponentModel::IContainer^ components;
 
@@ -70,18 +79,48 @@ namespace Bomberman {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->lbNivel = (gcnew System::Windows::Forms::Label());
+			this->pbCarga = (gcnew System::Windows::Forms::ProgressBar());
+			this->trCarga = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
 			// timer1
 			// 
-			this->timer1->Enabled = true;
 			this->timer1->Tick += gcnew System::EventHandler(this, &Juego::timer1_Tick);
+			// 
+			// lbNivel
+			// 
+			this->lbNivel->AutoSize = true;
+			this->lbNivel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbNivel->ForeColor = System::Drawing::Color::White;
+			this->lbNivel->Location = System::Drawing::Point(212, 166);
+			this->lbNivel->Name = L"lbNivel";
+			this->lbNivel->Size = System::Drawing::Size(80, 29);
+			this->lbNivel->TabIndex = 0;
+			this->lbNivel->Text = L"Nivel:";
+			// 
+			// pbCarga
+			// 
+			this->pbCarga->Location = System::Drawing::Point(175, 241);
+			this->pbCarga->Name = L"pbCarga";
+			this->pbCarga->Size = System::Drawing::Size(161, 23);
+			this->pbCarga->TabIndex = 1;
+			// 
+			// trCarga
+			// 
+			this->trCarga->Enabled = true;
+			this->trCarga->Interval = 2500;
+			this->trCarga->Tick += gcnew System::EventHandler(this, &Juego::trCarga_Tick);
 			// 
 			// Juego
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Black;
 			this->ClientSize = System::Drawing::Size(849, 750);
+			this->Controls->Add(this->pbCarga);
+			this->Controls->Add(this->lbNivel);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Name = L"Juego";
 			this->Text = L"Juego";
@@ -89,16 +128,17 @@ namespace Bomberman {
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Juego::Juego_KeyDown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Juego::UltimaTeclaPresionada);
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 
-		Graphics ^g = this->CreateGraphics();
+		Graphics^ g = this->CreateGraphics();
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 
-		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba,bmpExplosion );
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras);
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
@@ -145,9 +185,9 @@ namespace Bomberman {
 		{
 
 		case Keys::Space:
-				oControladora->agregarBomba();
-				
-				break;
+			oControladora->agregarBomba();
+
+			break;
 
 
 
@@ -156,6 +196,27 @@ namespace Bomberman {
 
 			oControladora->getoJugador()->setDireccion(Direcciones::Ninguna);
 			break;
+		}
+
+
+	}
+	private: System::Void trCarga_Tick(System::Object^ sender, System::EventArgs^ e) {
+		lbNivel->Text = "Nivel: " + oControladora->getNivel();
+		pbCarga->Increment(10);
+		if (trCarga->Interval == 2500 && oControladora->getoArrMejoras()->getvector_mejoras().size() < oControladora->getNivel()) {
+			oControladora->crear_enemigos_y_mejoras();
+		}
+
+		else {
+			trCarga->Enabled = false;
+			timer1->Enabled = true;
+
+			lbNivel->Visible = false;
+			lbNivel->Enabled = false;
+			pbCarga->Visible = false;
+			pbCarga->Enabled = false;
+
+
 		}
 
 

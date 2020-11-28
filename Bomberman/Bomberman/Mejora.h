@@ -30,7 +30,7 @@ public:
 	~CMejora() {}
 
 
-	void dibujar(Graphics^ g, Bitmap^ bmpMejoras, int** matriz) {
+	void dibujar(Graphics^g, Bitmap^bmpMejoras, int **matriz) {
 
 		Rectangle porcionAUsar = Rectangle(indiceX * ancho, indiceY * alto, ancho, alto);
 
@@ -70,6 +70,8 @@ public:
 				indiceX = 0;
 				if (indiceY >= 0 && indiceY < 1)
 					indiceY++;
+				else
+					indiceY = 0;
 				break;
 
 			case 2: //Mover bomba
@@ -77,6 +79,8 @@ public:
 				indiceX = 4;
 				if (indiceY >= 0 && indiceY < 1)
 					indiceY++;
+				else
+					indiceY = 0;
 				break;
 
 			case 3: //Calavera
@@ -84,6 +88,8 @@ public:
 				indiceX = 5;
 				if (indiceY >= 0 && indiceY < 1)
 					indiceY++;
+				else
+					indiceY = 0;
 				break;
 
 			case 4: //Patines
@@ -91,6 +97,8 @@ public:
 				indiceX = 8;
 				if (indiceY >= 0 && indiceY < 1)
 					indiceY++;
+				else
+					indiceY = 0;
 				break;
 
 			case 5: //Vidas
@@ -98,6 +106,8 @@ public:
 				indiceX = 9;
 				if (indiceY >= 0 && indiceY < 1)
 					indiceY++;
+				else
+					indiceY = 0;
 				break;
 
 
