@@ -94,7 +94,7 @@ namespace Bomberman {
 			this->lbNivel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbNivel->ForeColor = System::Drawing::Color::White;
-			this->lbNivel->Location = System::Drawing::Point(212, 166);
+			this->lbNivel->Location = System::Drawing::Point(327, 233);
 			this->lbNivel->Name = L"lbNivel";
 			this->lbNivel->Size = System::Drawing::Size(80, 29);
 			this->lbNivel->TabIndex = 0;
@@ -102,7 +102,7 @@ namespace Bomberman {
 			// 
 			// pbCarga
 			// 
-			this->pbCarga->Location = System::Drawing::Point(175, 241);
+			this->pbCarga->Location = System::Drawing::Point(287, 315);
 			this->pbCarga->Name = L"pbCarga";
 			this->pbCarga->Size = System::Drawing::Size(161, 23);
 			this->pbCarga->TabIndex = 1;
@@ -123,6 +123,7 @@ namespace Bomberman {
 			this->Controls->Add(this->lbNivel);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Name = L"Juego";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Juego";
 			this->Load += gcnew System::EventHandler(this, &Juego::Juego_Load);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Juego::Juego_KeyDown);
