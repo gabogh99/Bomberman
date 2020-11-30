@@ -11,7 +11,7 @@ C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(13,13): warning C424
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27,17): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(44,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(61,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(209,99): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(209,98): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27): warning C4700: uninitialized local variable 'i' used
   Juego.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Bomberman.vcxproj -> C:\Users\Familia\source\repos\Bomberman\Debug\Bomberman.exe

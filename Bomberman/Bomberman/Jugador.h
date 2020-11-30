@@ -35,6 +35,10 @@ public:
 		return Rectangle(x + 2 * 3 + dx, y + 15 * 3, (ancho - 4) * 3, (alto - 15) * 3);
 	}
 
+	int getVidas() {
+		return vidas;
+	}
+
 	int getX() { return x + 2 * 3; }
 	int getY() { return y + 15 * 3 + dy; }
 
