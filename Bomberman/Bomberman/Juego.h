@@ -27,6 +27,7 @@ namespace Bomberman {
 		Bitmap^ bmpBomba = gcnew Bitmap("Imagenes\\bomba.png");
 		Bitmap^ bmpExplosion = gcnew Bitmap("Imagenes\\explosion.png");
 		Bitmap^ bmpMejoras = gcnew Bitmap("Imagenes\\mejoras.png");
+		Bitmap^ bmpEnemigo = gcnew Bitmap("Imagenes\\bmpEnemigo.png");
 
 	public:
 		Juego(void)
@@ -39,6 +40,7 @@ namespace Bomberman {
 			bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
 			bmpBomba->MakeTransparent(bmpBomba->GetPixel(0, 0));
 			bmpExplosion->MakeTransparent(bmpExplosion->GetPixel(0, 0));
+			bmpEnemigo->MakeTransparent(bmpEnemigo->GetPixel(0, 0));
 
 			
 			//
@@ -139,7 +141,7 @@ namespace Bomberman {
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 
-		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras);
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpEnemigo);
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
@@ -204,7 +206,7 @@ namespace Bomberman {
 	private: System::Void trCarga_Tick(System::Object^ sender, System::EventArgs^ e) {
 		lbNivel->Text = "Nivel: " + oControladora->getNivel();
 		pbCarga->Increment(10);
-		if (trCarga->Interval == 2500 && oControladora->getoArrMejoras()->getvector_mejoras().size() < oControladora->getNivel()) {
+		if (trCarga->Interval == 2500 && oControladora->getoArrEnemigos()->getarregloEnemigos().size()  < oControladora->getNivel()) {
 			oControladora->crear_enemigos_y_mejoras();
 		}
 

@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrBombas.h" />
+    <ClInclude Include="ArrEnemigos.h" />
     <ClInclude Include="ArrMejoras.h" />
     <ClInclude Include="Bomba.h" />
     <ClInclude Include="Controladora.h" />

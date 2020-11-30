@@ -7,6 +7,10 @@ C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(13,13): warning C4244
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(58,63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(58,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrMejoras.h(21,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(207,96): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(13,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(41,7): warning C4552: '-': result of expression not used
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(209,99): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27): warning C4700: uninitialized local variable 'i' used
   Juego.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Bomberman.vcxproj -> C:\Users\Familia\source\repos\Bomberman\Debug\Bomberman.exe
