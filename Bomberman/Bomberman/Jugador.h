@@ -26,10 +26,14 @@ public:
 		direccion = Direcciones::Ninguna;
 		ultima = Direcciones::Abajo;
 
-
+		vidas = 3;
 	}
 
 	~CJugador() {}
+
+	Rectangle retornarRectangulo() {
+		return Rectangle(x + 2 * 3 + dx, y + 15 * 3, (ancho - 4) * 3, (alto - 15) * 3);
+	}
 
 	int getX() { return x + 2 * 3; }
 	int getY() { return y + 15 * 3 + dy; }
@@ -73,6 +77,33 @@ public:
 			}
 			Y += 50;
 		}
+	}
+
+	void disminuirVidas() {
+		x = 50;
+		y = 50;
+		vidas--;
+
+	}
+
+	void disminuirVidas(int PuntaIzquierda, int puntaDerecha, int CentroInicioY, int CentroFinalY,
+		int PuntaSuperior, int PuntaInferior, int CentroInicioX, int CentroFinalX) {
+
+		if (getX() >= PuntaIzquierda && getX() <= puntaDerecha && getY() >= CentroInicioY && getY() <= CentroFinalY) {
+
+			x = 50;
+			y = 50;
+			vidas--;
+
+		}
+
+		if (getY() >= PuntaSuperior && getY() <= PuntaInferior && getX() >= CentroInicioX && getX() <= CentroFinalX  )
+		{
+			x = 50;
+			y = 50;
+			vidas--;
+		}
+
 	}
 
 	void dibujarJugador(Graphics^g, Bitmap^bmpJugador, int **matriz){
@@ -210,6 +241,8 @@ private:
 
 	Rectangle CDI;
 	Rectangle CAA; 
+
+	int vidas;
 
 };
 

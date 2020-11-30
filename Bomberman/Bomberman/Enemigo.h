@@ -39,7 +39,7 @@ public:
 			if (j == 15) {
 
 				i++;
-				j - 0;
+				j = 0;
 			}
 
 			if (i >= 14)break;
@@ -72,6 +72,9 @@ public:
 
 	}
 
+	Rectangle retornarRectangulo() {
+		return Rectangle(x, y, 50, 50);
+	}
 
 private:
 

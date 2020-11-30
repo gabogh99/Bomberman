@@ -19,7 +19,7 @@ public:
 		oArrMejoras = new CArrMejoras();
 		oArrEnemigos = new CArrEnemigos();
 		
-		nivel = 2;
+		nivel = 3;
 
 	}
 
@@ -39,6 +39,48 @@ public:
 		oArrBombas->crear_una_bomba(oJugador->getX(), oJugador->getY());
 	}
 
+	void disminuir_Vidas_Por_Enemigo() {
+
+		for (int i = 0; i < oArrEnemigos->getarregloEnemigos().size(); i++)
+		{
+			if (oJugador->retornarRectangulo().IntersectsWith(oArrEnemigos->getarregloEnemigos().at(i)->retornarRectangulo())){
+
+				oJugador->disminuirVidas();
+			
+			}
+				
+		}
+
+	}
+
+	void disminuir_Vidas_Por_Bomba() {
+
+		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
+			PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX;
+
+		for (int i = 0; i < oArrBombas->getarregloBombas().size(); i++)
+		{
+
+			PuntaIzquierda = oArrBombas->getarregloBombas().at(i)->getX() - 100;
+			puntaDerecha = oArrBombas->getarregloBombas().at(i)->getX() + 150;
+			PuntaSuperior = oArrBombas->getarregloBombas().at(i)->getY() -100;
+			PuntaInferior = oArrBombas->getarregloBombas().at(i)->getY() + 150;
+			CentroInicioY = oArrBombas->getarregloBombas().at(i)->getY();
+			CentroInicioX = oArrBombas->getarregloBombas().at(i)->getY();
+			CentroFinalX = oArrBombas->getarregloBombas().at(i)->getY() + 50;
+			CentroFinalY = oArrBombas->getarregloBombas().at(i)->getY() + 50;
+
+			if (oArrBombas->getarregloBombas().at(i)->getEstado() == Estado::explosion) {
+
+				oJugador->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
+					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX);
+
+			}
+
+		}
+
+	}
+
 	void dibujar(Graphics^ g, Bitmap^ bmpBase, Bitmap^ bmpSolido, Bitmap^ bmpDestruible, Bitmap^ bmpJugador, Bitmap^bmpBomba, Bitmap^bmpExplosion, Bitmap^bmpMejoras, Bitmap^bmpEnemigo ) {
 
 		oEscenario->PintarBase(g, bmpBase);
@@ -47,6 +89,9 @@ public:
 		oJugador->moverJugador(g, bmpJugador, oEscenario->getmatriz());
 		oArrBombas->Dibujar_una_bomba(g, bmpBomba, bmpExplosion, oJugador->getX(),oJugador->getY(), oEscenario->getmatriz() );
 		oArrEnemigos->dibujar(g, bmpEnemigo, oEscenario->getmatriz());
+
+		disminuir_Vidas_Por_Bomba();
+		disminuir_Vidas_Por_Enemigo();
 	}
 
 	void crear_enemigos_y_mejoras() {
