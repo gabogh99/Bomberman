@@ -17,11 +17,12 @@ public:
 		y = 650;
 
 		dx = 5;
+
 		indiceX = 0;
 		indiceY = 0;
 
 		ancho = 96 / 6;
-		alto = 16 / 6;
+		alto = 20;
 
 		ubicado = false;
 		estado = Normal;
