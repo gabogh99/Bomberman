@@ -17,6 +17,7 @@ public:
 		//Movimiento jugador
 		dx = 0;
 		dy = 0;
+		acelerar = 0;
 		//Dimensiones Sprites
 		ancho = 18;
 		alto = 26;
@@ -41,7 +42,9 @@ public:
 
 	int getX() { return x + 2 * 3; }
 	int getY() { return y + 15 * 3 + dy; }
-
+	int setVidas(int v) {
+		vidas = v;
+	}
 	void setDX(int dx) {
 		this->dx = dx;
 	}
@@ -144,7 +147,7 @@ public:
 			else
 				indiceX = 1;
 			dx = 0;
-			dy = -10;
+			dy = -10-acelerar;
 			ultima = Arriba;
 
 			break;
@@ -158,7 +161,7 @@ public:
 			else
 				indiceY = 1;
 			dx = 0;
-			dy = 10;
+			dy = 10+acelerar;
 			ultima = Abajo;
 
 			break;
@@ -172,7 +175,7 @@ public:
 
 			else
 				indiceX = 1;
-			dx = -10;
+			dx = -10-acelerar;
 			dy = 0;
 			ultima = Izquierda;
 
@@ -185,7 +188,7 @@ public:
 
 			else
 				indiceX = 1;
-			dx = 10;
+			dx = 10+acelerar;
 			dy = 0;
 			ultima = Derecha;
 
@@ -229,6 +232,13 @@ public:
 
 
 	}
+	int getAcelerar() {
+		return acelerar;
+	}
+
+	void setAcelerar(int v) {
+		acelerar = v;
+	}
 
 private:
 
@@ -240,6 +250,8 @@ private:
 	int alto;
 	int indiceX;
 	int indiceY;
+	int acelerar;
+
 	Direcciones direccion;
 	Direcciones ultima;
 

@@ -34,6 +34,10 @@ public:
 	}
 	~CBomba() {}
 
+	Rectangle getRectangulo() {
+		return Rectangle(x, y, 40, 40);
+	}
+
 	bool validarLugar(int xJugador, int yJugador, int **matriz) {
 
 		if (matriz[yJugador / 50][xJugador / 50] == 0 || matriz[yJugador / 50][xJugador / 50] == 2)
@@ -161,6 +165,18 @@ public:
 	
 	int getY() {
 		return y;
+	}
+
+	void setx(int v) {
+		x = v;
+	}
+
+	void sety(int v) {
+		y = v;
+	}
+
+	void settiempo(int v) {
+		tiempo_antes_de_explotar = v;
 	}
 
 private: //Datos explosion

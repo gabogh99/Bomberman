@@ -56,7 +56,13 @@ public:
 		return arregloBombas;
 	}
 
+	void setBombas(int v) {
+		totalBombas = v;
+	}
 
+	int getBombas() {
+		return totalBombas;
+	}
 private:
 	vector<CBomba*>arregloBombas;
 	int totalBombas;

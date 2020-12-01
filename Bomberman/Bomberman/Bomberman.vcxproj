@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Juego.cpp" />
+    <ClCompile Include="MenuPrincipal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrBombas.h" />
@@ -135,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Mejora.h" />
+    <ClInclude Include="MenuPrincipal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Juego.resx">
