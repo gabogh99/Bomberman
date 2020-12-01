@@ -8,6 +8,7 @@ namespace Bomberman {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Media;
 
 	/// <summary>
 	/// Summary for Juego
@@ -17,6 +18,7 @@ namespace Bomberman {
 
 
 	private:
+		SoundPlayer^ MusicaN;
 
 		CControladora* oControladora;
 
@@ -135,6 +137,12 @@ namespace Bomberman {
 
 		}
 #pragma endregion
+
+		void MusicaNivel() {
+			MusicaN = gcnew SoundPlayer("Sonido\\ModoSolitario.wav");
+			MusicaN->PlayLooping();
+		}
+
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 
 		Graphics^ g = this->CreateGraphics();
@@ -213,7 +221,7 @@ namespace Bomberman {
 		else {
 			trCarga->Enabled = false;
 			timer1->Enabled = true;
-
+			MusicaNivel();
 			lbNivel->Visible = false;
 			lbNivel->Enabled = false;
 			pbCarga->Visible = false;

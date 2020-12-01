@@ -1,9 +1,9 @@
 #include "Juego.h"
 
-using namespace Bomberman;
+//using namespace Bomberman;
 
-void main() {
+//void main() {
 
-	Application::EnableVisualStyles();
-	Application::Run(gcnew Juego());
-}
+	//Application::EnableVisualStyles();
+	//Application::Run(gcnew Juego());
+//}

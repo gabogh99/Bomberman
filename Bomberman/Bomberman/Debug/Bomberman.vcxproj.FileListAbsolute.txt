@@ -1,3 +1,4 @@
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Debug\Bomberman.vcxprojAssemblyReference.cache
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Debug\Bomberman.Juego.resources
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Debug\Bomberman.vcxproj.GenerateResource.cache
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Debug\Bomberman.MenuPrincipal.resources

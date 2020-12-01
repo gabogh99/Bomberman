@@ -19,7 +19,7 @@ public:
 		oArrMejoras = new CArrMejoras();
 		oArrEnemigos = new CArrEnemigos();
 		
-		nivel = 3;
+		nivel = 1;
 		habilidad = false;
 
 	}
@@ -82,32 +82,7 @@ public:
 
 	}
 
-	void patear() {
-		if (habilidad == true) {
-			for (int i = 0; i < oArrBombas->getarregloBombas().size(); i++)
-			{
-				if (oArrBombas->getarregloBombas().at(i)->getEstado() == Estado::normal && oJugador->retornarRectangulo().IntersectsWith(oArrBombas->getarregloBombas().at(i)->getRectangulo()))
-				{
-					if (oJugador->getDireccion() == Direcciones::Abajo && oEscenario->getValue((oArrBombas->getarregloBombas().at(i)->getY() + 50) / 50, (oArrBombas->getarregloBombas().at(i)->getX()) / 50) == 2) {
-						oArrBombas->getarregloBombas().at(i)->sety(oArrBombas->getarregloBombas().at(i)->getY() + 50);
-						oArrBombas->getarregloBombas().at(i)->settiempo(0);
-					}
-					if (oJugador->getDireccion() == Direcciones::Arriba && oEscenario->getValue((oArrBombas->getarregloBombas().at(i)->getY() - 50) / 50, (oArrBombas->getarregloBombas().at(i)->getX()) / 50) == 2) {
-						oArrBombas->getarregloBombas().at(i)->sety(oArrBombas->getarregloBombas().at(i)->getY() - 50);
-						oArrBombas->getarregloBombas().at(i)->settiempo(0);
-					}
-					if (oJugador->getDireccion() == Direcciones::Derecha && oEscenario->getValue((oArrBombas->getarregloBombas().at(i)->getY()) / 50, (oArrBombas->getarregloBombas().at(i)->getX() + 50) / 50) == 2) {
-						oArrBombas->getarregloBombas().at(i)->setx(oArrBombas->getarregloBombas().at(i)->getX() + 50);
-						oArrBombas->getarregloBombas().at(i)->settiempo(0);
-					}
-					if (oJugador->getDireccion() == Direcciones::Izquierda && oEscenario->getValue((oArrBombas->getarregloBombas().at(i)->getY()) / 50, (oArrBombas->getarregloBombas().at(i)->getX() - 50) / 50) == 2) {
-						oArrBombas->getarregloBombas().at(i)->setx(oArrBombas->getarregloBombas().at(i)->getX() - 50);
-						oArrBombas->getarregloBombas().at(i)->settiempo(0);
-					}
-				}
-			}
-		}
-	}
+
 
 	void agarrarMejoras() {
 
@@ -131,11 +106,13 @@ public:
 					break;
 				case 5: // Vidas
 					oJugador->setVidas(oJugador->getVidas() + 1);
-
 					break;
 				default:
 					break;
 				}
+				oArrMejoras->eliminarenpos(i);
+				//oArrMejoras->getvector_mejoras().erase(oArrMejoras->getvector_mejoras().begin() + i);
+
 
 			}
 		}
@@ -154,7 +131,7 @@ public:
 		disminuir_Vidas_Por_Bomba();
 		disminuir_Vidas_Por_Enemigo();
 		agarrarMejoras();
-		patear();
+
 	}
 
 	void crear_enemigos_y_mejoras() {

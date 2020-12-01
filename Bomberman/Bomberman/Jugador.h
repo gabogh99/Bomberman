@@ -41,8 +41,10 @@ public:
 	}
 
 	int getX() { return x + 2 * 3; }
+
 	int getY() { return y + 15 * 3 + dy; }
-	int setVidas(int v) {
+
+	void setVidas(int v) {
 		vidas = v;
 	}
 	void setDX(int dx) {

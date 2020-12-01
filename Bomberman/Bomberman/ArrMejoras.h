@@ -30,6 +30,10 @@ public:
 		return vector_mejoras;
 	}
 
+	void eliminarenpos(int pos) {
+		vector_mejoras.erase(vector_mejoras.begin() + pos);
+	}
+
 private:
 	vector<CMejora*>vector_mejoras;
 };
