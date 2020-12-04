@@ -1,39 +1,39 @@
 ﻿  Juego.cpp
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(21,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(21,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(27,28): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(35,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(13,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(33,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(33,42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(60,63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(60,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrMejoras.h(21,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(13,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27,17): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(45,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(34,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(18,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrMejoras.h(34,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(19,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44,17): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(62,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(89,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(82,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(114,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(217,98): warning C4018: '<': signed/unsigned mismatch
   MenuPrincipal.cpp
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(21,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(21,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(27,28): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(35,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(13,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(33,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(33,42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(60,63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(60,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrMejoras.h(21,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(13,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27,17): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(45,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(34,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(18,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrMejoras.h(34,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(19,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44,17): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(62,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(89,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(82,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(114,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(217,98): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27): warning C4700: uninitialized local variable 'i' used
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(27): warning C4700: uninitialized local variable 'i' used
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44): warning C4700: uninitialized local variable 'i' used
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44): warning C4700: uninitialized local variable 'i' used
   Juego.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Bomberman.vcxproj -> C:\Users\Familia\source\repos\Bomberman\Debug\Bomberman.exe

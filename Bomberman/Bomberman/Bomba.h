@@ -1,72 +1,102 @@
 #ifndef __BOMBA_H__
 #define __BOMBA_H__
-
 using namespace System::Drawing;
-enum Estado{normal, explosion, desaparecer};
+
+/// <summary>
+/// Clase que crea y dibuja las bombas
+/// </summary>
+
+enum Estado{normal, explosion, desaparecer}; // Se crean estado para la animacion de la bomba
 
 class CBomba
 {
 public:
+	/// <summary>
+	/// Se inicializa la bomba
+	/// </summary>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+
 
 	CBomba(int x, int y){
 
 		this->x = x;
 		this->y = y;
-		estado = Estado::normal;
+		estado = Estado::normal; //Se inicializa el estado en normal, como está al colocarla
 		 
-		ancho = 66 / 3;
-		alto = 24;
+		ancho = 66 / 3; //Ancho de sprites entre cantidad de animaciones
+		alto = 24; //Alto de sprites
 
 		indiceX = 0;
-		tiempo_antes_de_explotar = 0;
+		tiempo_antes_de_explotar = 0; //Tiempo de explosion incializado en 0
 		
 	
 
-	//Datos Iniciales para la explosion
+	//Datos Iniciales para la explosion de la bomba
 
 	indiceEX = 0;
 	indiceEY = 0;
 
-	altoExplosion = 160 / 8;
-	anchoExplosion = 80 / 4;
+	altoExplosion = 160 / 8; //Ancho de sprites entre cantidad de animaciones
+	anchoExplosion = 80 / 4; //Alto de sprites
 
 
 	}
 	~CBomba() {}
 
+	/// <summary>
+	/// Método que define el áera que ocupa la bomba
+	/// </summary>
+	/// <returns></returns>
 	Rectangle getRectangulo() {
 		return Rectangle(x, y, 40, 40);
 	}
-
+	/// <summary>
+	/// Función para validar si el lugar donde se desea poner una bomba es apto
+	/// </summary>
+	/// <param name="xJugador"></param>
+	/// <param name="yJugador"></param>
+	/// <param name="matriz"></param>
+	/// <returns></returns>
 	bool validarLugar(int xJugador, int yJugador, int **matriz) {
 
-		if (matriz[yJugador / 50][xJugador / 50] == 0 || matriz[yJugador / 50][xJugador / 50] == 2)
+		if (matriz[yJugador / 50][xJugador / 50] == 0 || matriz[yJugador / 50][xJugador / 50] == 2) //Valida con los valores dados de la matriz si se puede colocar la bomba
 			return true;
 		else
-			return false;
+			return false; //Para los casos donde haya bloques fijos no se pueden colocar
 
 	}
-
+	/// <summary>
+	/// Método para dibujar la bomba antes de explotar
+	/// </summary>
+	/// <param name="g"></param>
+	/// <param name="bmpBomba"></param>
+	/// <param name="xJugador"></param>
+	/// <param name="yJugador"></param>
+	/// <param name="matriz"></param>
 	void dibujarBomba(Graphics ^ g, Bitmap^bmpBomba, int xJugador, int yJugador, int **matriz){
 
-		if (validarLugar(xJugador, yJugador, matriz) == true) {
+		if (validarLugar(xJugador, yJugador, matriz) == true) { //Determina si la validación anterior es verdadera
 
-			Rectangle porcionAUsar = Rectangle(indiceX * ancho, 0, ancho, alto);
+			Rectangle porcionAUsar = Rectangle(indiceX * ancho, 0, ancho, alto); ///Se define el espacio a utilizar de los sprites
 			Rectangle aumento = Rectangle(x, y, 40, 40);
-			g->DrawImage(bmpBomba, aumento, porcionAUsar, GraphicsUnit::Pixel);
+			g->DrawImage(bmpBomba, aumento, porcionAUsar, GraphicsUnit::Pixel); //Se dibuja la bomba normal con su bmp
 		}
 
 
 
-		if (tiempo_antes_de_explotar == 6) { estado = Estado::explosion; }
+		if (tiempo_antes_de_explotar == 6) { estado = Estado::explosion; }//Cuando el tiempo de explosion llega a 6, el estado cambia a explosion
 	}
 
+	/// <summary>
+	/// Método para realizar la animación de la bomba
+	/// </summary>
 	void animar() {
 
-		if (indiceX >= 0 && indiceX < 2)
+		if (indiceX >= 0 && indiceX < 2) //Se recorre los sprites y se cambian para animarlo
 			indiceX++;
 		else {
-			tiempo_antes_de_explotar++;
+			tiempo_antes_de_explotar++;//A medida que se actualizan los sprites, el tiempo de explosion aumenta
 			indiceX = 0;
 		}
 	}
@@ -147,39 +177,62 @@ public:
 
 	void animarExplosion() {
 
-		if (indiceEX >= 0 && indiceEX < 3)
+		if (indiceEX >= 0 && indiceEX < 3)//Se recorre los sprites y se cambian para animarlo
 			indiceEX++;
 		else
 		{
-			estado = Estado::desaparecer;
+			estado = Estado::desaparecer;//Luego de la explosion se pasa al estado desaparecer
 		}
 	}
+
+	/// <summary>
+	/// Método get para obtener el estado
+	/// </summary>
+	/// <returns></returns>
 
 	Estado getEstado() {
 		return estado;
 	}
 
+	/// <summary>
+	/// Método get para obtener el x
+	/// </summary>
+	/// <returns>x</returns>
 	int getX() {
 		return x;
 	}
+
+	/// <summary>
+/// Método get para obtener el y
+/// </summary>
+/// <returns>y</returns>
 	
 	int getY() {
 		return y;
 	}
-
+	/// <summary>
+	/// Método para definir el x 
+	/// </summary>
+	/// <param name="v"></param>
 	void setx(int v) {
 		x = v;
 	}
-
+/// <summary>
+/// Método para definir el y 
+/// </summary>
+/// <param name="v"></param>
 	void sety(int v) {
 		y = v;
 	}
-
+	/// <summary>
+	/// Método para definir el tiempo antes de explotar
+	/// </summary>
+	/// <param name="v"></param>
 	void settiempo(int v) {
 		tiempo_antes_de_explotar = v;
 	}
 
-private: //Datos explosion
+private: //Datos definidos de la explosion
 
 	int indiceEX;
 	int indiceEY;
@@ -189,7 +242,7 @@ private: //Datos explosion
 
 
 
-private: //Datos de la bomba
+private:  //Datos definidos de la bomba
 
 	int x;
 	int y;

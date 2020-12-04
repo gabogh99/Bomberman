@@ -20,7 +20,11 @@ namespace Bomberman {
 	private:
 		SoundPlayer^ MusicaN;
 
-		CControladora* oControladora;
+		CControladora* oControladora; //Se crea el objeto Controladora
+
+		/// <summary>
+		/// Se crean los bmps con las imagenes
+		/// </summary>
 
 		Bitmap^ bmpSuelo = gcnew Bitmap("Imagenes\\bmpSuelo.png");
 		Bitmap^ bmpSolido = gcnew Bitmap("Imagenes\\bmpSolido.png");
@@ -35,9 +39,10 @@ namespace Bomberman {
 		Juego(void)
 		{
 
-			InitializeComponent();
 
-			oControladora = new CControladora();
+			InitializeComponent(); //Se inicializa el juego
+
+			oControladora = new CControladora(); //Se crea el objeto Controladora
 
 			bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
 			bmpBomba->MakeTransparent(bmpBomba->GetPixel(0, 0));
@@ -81,6 +86,11 @@ namespace Bomberman {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+
+			/// <summary>
+			/// Se crean los componentes gráficos del juego
+			/// </summary>
+			/// <param name=""></param>
 			this->components = (gcnew System::ComponentModel::Container());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->lbNivel = (gcnew System::Windows::Forms::Label());
@@ -88,11 +98,11 @@ namespace Bomberman {
 			this->trCarga = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
-			// timer1
+			// timer1 para recargar los frames del juego
 			// 
 			this->timer1->Tick += gcnew System::EventHandler(this, &Juego::timer1_Tick);
 			// 
-			// lbNivel
+			// label para mostrar el nivel actual
 			// 
 			this->lbNivel->AutoSize = true;
 			this->lbNivel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -104,14 +114,14 @@ namespace Bomberman {
 			this->lbNivel->TabIndex = 0;
 			this->lbNivel->Text = L"Nivel:";
 			// 
-			// pbCarga
+			// Progress bar de carga del juego 
 			// 
 			this->pbCarga->Location = System::Drawing::Point(287, 315);
 			this->pbCarga->Name = L"pbCarga";
 			this->pbCarga->Size = System::Drawing::Size(161, 23);
 			this->pbCarga->TabIndex = 1;
 			// 
-			// trCarga
+			// Timer para cargar el juego
 			// 
 			this->trCarga->Enabled = true;
 			this->trCarga->Interval = 2500;
@@ -138,51 +148,62 @@ namespace Bomberman {
 		}
 #pragma endregion
 
+		/// <summary>
+		/// Método que agrega musica al juego
+		/// </summary>
+
 		//void MusicaNivel() {
 			//MusicaN = gcnew SoundPlayer("Sonido\\ModoSolitario.wav");
-		//	MusicaN->PlayLooping();
+		//MusicaN->PlayLooping();
 		//}
 
-	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+	///Timer para refrescar los frames cada cierto tiempo	
+
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 
 		Graphics^ g = this->CreateGraphics();
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
-		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpEnemigo);
-		this->Text = "" + oControladora->getoJugador()->getVidas();
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpEnemigo); //Se dibujan los bmp y se vuelven visuales en la ventana
+		this->Text = "" + oControladora->getoJugador()->getVidas(); //Muestra la cantidad de vidas
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
 	}
 
-
+	/// <summary>
+	/// Se carga el juego mostrando la barra de carga y el nivel actual
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	/// <returns></returns>
 	private: System::Void Juego_Load(System::Object^ sender, System::EventArgs^ e) {
 		lbNivel->Text = "Nivel: " + oControladora->getNivel();
 		oControladora->CambiarNivel();
 	}
-	private: System::Void Juego_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	private: System::Void Juego_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) { //Validacion de los controles del teclado
 
 		switch (e->KeyCode)
 		{
 
 		case Keys::Up:
 
-			oControladora->getoJugador()->setDireccion(Direcciones::Arriba);
+			oControladora->getoJugador()->setDireccion(Direcciones::Arriba); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
 			break;
 
 		case Keys::Down:
 
-			oControladora->getoJugador()->setDireccion(Direcciones::Abajo);
+			oControladora->getoJugador()->setDireccion(Direcciones::Abajo);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
 			break;
 
 		case Keys::Left:
 
-			oControladora->getoJugador()->setDireccion(Direcciones::Izquierda);
+			oControladora->getoJugador()->setDireccion(Direcciones::Izquierda);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
 			break;
 
 		case Keys::Right:
 
-			oControladora->getoJugador()->setDireccion(Direcciones::Derecha);
+			oControladora->getoJugador()->setDireccion(Direcciones::Derecha);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
 			break;
 
 		default:
@@ -196,7 +217,7 @@ namespace Bomberman {
 		{
 
 		case Keys::Space:
-			oControladora->agregarBomba();
+			oControladora->agregarBomba(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
 
 			break;
 
@@ -205,20 +226,25 @@ namespace Bomberman {
 
 		default:
 
-			oControladora->getoJugador()->setDireccion(Direcciones::Ninguna);
+			oControladora->getoJugador()->setDireccion(Direcciones::Ninguna); //Si no se presiona ninguna tecla el jugadore se detiene
 			break;
 		}
 
 
 	}
+
+	/// <summary>
+	/// Se crea el timer de carga
+	/// </summary>
+
 	private: System::Void trCarga_Tick(System::Object^ sender, System::EventArgs^ e) {
-		lbNivel->Text = "Nivel: " + oControladora->getNivel();
-		pbCarga->Increment(10);
+		lbNivel->Text = "Nivel: " + oControladora->getNivel(); //Se cambia el texto en el label según el nivel
+		pbCarga->Increment(10); //Incrementa el progessBar de carga
 		if (trCarga->Interval == 2500 && oControladora->getoArrEnemigos()->getarregloEnemigos().size() < oControladora->getNivel()) {
-			oControladora->crear_enemigos_y_mejoras();
+			oControladora->crear_enemigos_y_mejoras(); //Se crean los enemigos y mejoras
 		}
 
-		else {
+		else { //Al hacerse falso el timer de carga, se hace verdadero el timer 1 del juego y los labels y progressBar se deshabilitan.
 			trCarga->Enabled = false;
 			timer1->Enabled = true;
 			//MusicaNivel();

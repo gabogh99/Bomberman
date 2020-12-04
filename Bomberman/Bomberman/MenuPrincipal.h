@@ -16,6 +16,8 @@ namespace Bomberman {
 	/// </summary>
 	public ref class MenuPrincipal : public System::Windows::Forms::Form
 	{
+
+		//Se crea el soundPlayer para la musica
 	private:
 		SoundPlayer^ Music;
 
@@ -39,6 +41,8 @@ namespace Bomberman {
 				delete components;
 			}
 		}
+
+		//Se inicializan los componentes del  menu principal
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
 	private: System::Windows::Forms::Button^ btnInstruccionesDesaparecer;
@@ -64,6 +68,8 @@ namespace Bomberman {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+
+			//Se crean los componentes del  menu principal
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuPrincipal::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnInstruccionesDesaparecer = (gcnew System::Windows::Forms::Button());
@@ -211,17 +217,28 @@ namespace Bomberman {
 		}
 #pragma endregion
 
+		/// <summary>
+		/// Método para reproducir musica del inicio en loop
+		/// </summary>
 		void Musica() {
 			Music = gcnew SoundPlayer("Sonido\\MusicaIntro.wav");
 			Music->PlayLooping();
 		}
 
+	/// <summary>
+	/// Funcion del boton desaparecer instrucciones que hace la ventana pequeña
+	/// </summary>
 	private: System::Void btnInstruccionesDesaparecer_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 		this->Width = 500;
 		btnInstruccionesDesaparecer->Visible = false;
 		btnInstrucionesAparecer->Visible = true;
 	}
+
+
+		   /// <summary>
+		   /// Funcion del boton instrucciones que hace la ventana grande para ver las instrucciones
+		   /// </summary>
 private: System::Void btnInstrucionesAparecer_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	this->Width = 850;
@@ -230,14 +247,23 @@ private: System::Void btnInstrucionesAparecer_Click(System::Object^ sender, Syst
 
 }
 
+/// <summary>
+/// Boton jugar que inicia el juego
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+/// <returns></returns>
+
 private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Juego^ frm = gcnew Juego();
+	Juego^ frm = gcnew Juego();// Se crea el juego
 	this->Visible = false;
 	frm->Show();
-	Music->Stop();
+	Music->Stop(); //Se detiene la musica del menu
 
 }
+
+//Se carga el menú principal y la música que este tiene
 private: System::Void MenuPrincipal_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	Musica();
