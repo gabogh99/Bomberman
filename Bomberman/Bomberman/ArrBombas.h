@@ -1,5 +1,11 @@
 #ifndef __ARRBOMBAS_H__
 #define __ARRBOMBAS_H__
+
+/*
+* 
+* 
+* */
+
 #include "Bomba.h"
 #include <vector>
 using namespace std;

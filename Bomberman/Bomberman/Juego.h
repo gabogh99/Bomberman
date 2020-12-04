@@ -138,10 +138,10 @@ namespace Bomberman {
 		}
 #pragma endregion
 
-		void MusicaNivel() {
-			MusicaN = gcnew SoundPlayer("Sonido\\ModoSolitario.wav");
-			MusicaN->PlayLooping();
-		}
+		//void MusicaNivel() {
+			//MusicaN = gcnew SoundPlayer("Sonido\\ModoSolitario.wav");
+		//	MusicaN->PlayLooping();
+		//}
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 
@@ -221,7 +221,7 @@ namespace Bomberman {
 		else {
 			trCarga->Enabled = false;
 			timer1->Enabled = true;
-			MusicaNivel();
+			//MusicaNivel();
 			lbNivel->Visible = false;
 			lbNivel->Enabled = false;
 			pbCarga->Visible = false;

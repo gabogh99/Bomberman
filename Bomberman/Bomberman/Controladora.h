@@ -19,7 +19,7 @@ public:
 		oArrMejoras = new CArrMejoras();
 		oArrEnemigos = new CArrEnemigos();
 		
-		nivel = 1;
+		nivel = 3;
 		habilidad = false;
 
 	}
