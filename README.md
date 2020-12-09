@@ -12,6 +12,6 @@ En este proyecto se utlizo la version de Visual Studio 2019 Community, la cual e
 
 Aparte de tener que instalar el workload tambien debemos descargar el .NET framework en su version 4.7.1, este framework nos permite trabajar con herramientas de .NET las cuales son indispensables para el buen funcionamiento de la aplicacion.
 
-Luego de haber instalado el .NET Framework, abrir la solucion(archivo .sln) con Visual Studio la cual se encuentra la carpeta Bomberman
+Luego de haber instalado el .NET Framework, abrir la solucion(archivo .sln) con Visual Studio la cual se encuentra en la carpeta Bomberman
 
 `Bomberman\Bommberman.sln`
