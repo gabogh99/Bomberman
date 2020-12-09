@@ -239,6 +239,14 @@ public:
 
 	}
 
+	/// <summary>
+/// Método que realiza el movimiento automático de los enemigos
+/// </summary>
+/// <param name="g"></param>
+/// <param name="bmpJugador2"></param>
+/// <param name="bmpBase"></param>
+/// <param name="matriz"></param>
+
 	void movimientoIA(Graphics^ g, Bitmap^ bmpJugador2, Bitmap^ bmpBase, int** matriz) {
 
 
@@ -263,18 +271,18 @@ public:
 		if (vidas < 1) {
 
 
-			ancho = 10;
+			ancho = 10;//Se define alto y ancho para dibujar la base
 			alto = 10;
-			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
-			vidas = 0;
-			dy += 0;
+			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);//Se cambia el jugador por la base
+			vidas = 0;//Se hacen 0 para que no haya negativos
+			dy += 0;//Se detiene el movimiento
 
 		}
 
 		else {
-			ancho = 18;
+			ancho = 18;//Se confirma el ancho y alto para cambiarlo al reiniciar el juego
 			alto = 26;
-			dx -= 0.3;
+			dx -= 0.3;// Se cambia el movimiento
 		}
 
 

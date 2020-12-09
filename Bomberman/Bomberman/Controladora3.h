@@ -76,8 +76,8 @@ public:
 /// </summary>
 	void agregarBomba2() {
 
-		if (oJugador->getX() == oJugador2->getX() || oJugador->getX() == oJugador2->getX())
-			oArrBombas2->crear_una_bomba2(oJugador2->getX(), oJugador2->getY()); //Agarra una bomba del array y la coloca en las posiciones de x y y del jugador
+		
+		oArrBombas2->crear_una_bomba2(oJugador2->getX(), oJugador2->getY()); //Agarra una bomba del array y la coloca en las posiciones de x y y del jugador
 
 	}
 
@@ -171,7 +171,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba3() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -203,7 +205,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void disminuir_Vidas_Por_Bomba4() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -235,7 +239,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 
 	void disminuir_Vidas_Por_Bomba5() {
 
@@ -268,7 +274,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void disminuir_Vidas_Por_Bomba6() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -301,7 +309,9 @@ public:
 
 	}
 
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void disminuir_Vidas_Por_Bomba7() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -334,7 +344,9 @@ public:
 
 	}
 
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void disminuir_Vidas_Por_Bomba8() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -366,7 +378,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba9() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -398,7 +412,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba10() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -431,7 +447,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba11() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -464,7 +482,9 @@ public:
 
 	}
 
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void disminuir_Vidas_Por_Bomba12() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -496,7 +516,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void disminuir_Vidas_Por_Bomba13() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -529,7 +551,9 @@ public:
 
 	}
 
-
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba14() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -561,7 +585,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 
 	void disminuir_Vidas_Por_Bomba15() {
 
@@ -595,7 +621,9 @@ public:
 
 	}
 
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void disminuir_Vidas_Por_Bomba16() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -630,7 +658,9 @@ public:
 
 	}
 
-
+	/// <summary>
+/// Método para disminuir vida del jugador por bomba
+/// </summary>
 	void Disminucion() {
 
 		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo())) {
@@ -699,7 +729,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+/// Método para adquirir power-ups
+/// </summary>
 	void agarrarMejoras2() {
 
 		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
@@ -733,7 +765,9 @@ public:
 		}
 
 	}
-
+	/// <summary>
+/// Método para adquirir power-ups
+/// </summary>
 	void agarrarMejoras3() {
 
 		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
@@ -768,7 +802,9 @@ public:
 
 	}
 
-
+	/// <summary>
+/// Método para adquirir power-ups
+/// </summary>
 	void agarrarMejoras4() {
 
 		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
@@ -826,9 +862,8 @@ public:
 		oEscenario->PintarMatriz(g, bmpSolido, bmpDestruible);
 		oJugador->moverJugador(g, bmpJugador, oEscenario->getmatriz(), bmpBase);
 		oJugador3->moverJugador(g, bmpJugador3, oEscenario->getmatriz(), bmpBase);
-
-		oJugador2->movimientoIA(g, bmpJugador2, bmpBase, oEscenario->getmatriz());
-		oJugador4->movimientoIA(g, bmpJugador4, bmpBase, oEscenario->getmatriz());
+		oJugador2->moverJugador(g, bmpJugador2, bmpBase, oEscenario->getmatriz() );
+		oJugador4->moverJugador(g, bmpJugador4, oEscenario->getmatriz(), bmpBase);
 
 		oArrBombas->Dibujar_una_bomba(g, bmpBomba, bmpExplosion, oJugador->getX(), oJugador->getY(), oEscenario->getmatriz());
 		oArrBombas2->Dibujar_una_bomba(g, bmpBomba, bmpExplosion, oJugador2->getX(), oJugador2->getY(), oEscenario->getmatriz());

@@ -190,34 +190,45 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		}
 		if (oControladora->getoJugador()->getVidas() == 0 && oControladora->getoJugador2()->getVidas() == 0 && oControladora->getoJugador4()->getVidas() == 0 && oControladora->getoJugador3()->getVidas() != 0) {
 			this->Text = "																													Game Over:  Winner Player 3";
-			_sleep(3000);
-			oControladora->getoJugador()->setVidas(3);
-			oControladora->getoJugador2()->setVidas(rand() % 6 + 5);
-			oControladora->getoJugador4()->setVidas(rand() % 6 + 5);
+			_sleep(3000); //Sleep para mostrar ganador
+			oControladora->getoJugador4()->setVidas(rand() % 5 + 5); //Genera otro numero random de vidas 
+			oControladora->getoJugador2()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora->getoJugador3()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora->getoJugador()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+
 			oControladora->getoJugador3()->setX(50);
 			oControladora->getoJugador3()->setY(600);
-			reiniciar();
+			reiniciar();//Se reinicia el juego	
+		
 		}
+
 		if (oControladora->getoJugador()->getVidas() == 0 && oControladora->getoJugador4()->getVidas() == 0 && oControladora->getoJugador3()->getVidas() == 0 && oControladora->getoJugador2()->getVidas() != 0) {
 			this->Text = "																													Game Over:  Winner Player 2";
-			_sleep(3000);
-			oControladora->getoJugador()->setVidas(3);
-			oControladora->getoJugador4()->setVidas(rand() % 6 + 5);
-			oControladora->getoJugador3()->setVidas(rand() % 6 + 5);
+			_sleep(3000); //Sleep para mostrar ganador
+			oControladora->getoJugador4()->setVidas(rand() % 5 + 5); //Genera otro numero random de vidas 
+			oControladora->getoJugador2()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora->getoJugador3()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora->getoJugador()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+
 			oControladora->getoJugador2()->setX(50);
 			oControladora->getoJugador2()->setY(600);
-			reiniciar();
+			reiniciar();//Se reinicia el juego		
+
 		}
+
 		if (oControladora->getoJugador2()->getVidas() == 0 && oControladora->getoJugador4()->getVidas() == 0 && oControladora->getoJugador3()->getVidas() == 0 && oControladora->getoJugador()->getVidas() != 0) {
 			this->Text = "																													Game Over:  Winner Player 1";
 			_sleep(3000);
-			oControladora->getoJugador4()->setVidas(rand() % 6 + 5);
-			oControladora->getoJugador2()->setVidas(rand() % 6 + 5);
-			oControladora->getoJugador3()->setVidas(rand() % 6 + 5);
+			_sleep(3000); //Sleep para mostrar ganador
+			oControladora->getoJugador4()->setVidas(rand() % 5 + 5); //Genera otro numero random de vidas 
+			oControladora->getoJugador2()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora->getoJugador3()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora->getoJugador()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+
 			oControladora->getoJugador()->setX(50);
 			oControladora->getoJugador()->setY(600);
 
-			reiniciar();
+			reiniciar();//Se reinicia el juego		
 		}
 		else
 		{
@@ -229,7 +240,9 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		delete buffer, espacio, g;
 
 	}
-
+	   /// <summary>
+		/// Método para reiniciar la partida una vez finalizada
+		/// </summary>
 	   void reiniciar() {
 
 		   oControladora->CambiarNivel();
@@ -288,17 +301,17 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 
 		case Keys::S:
 
-			oControladora->getoJugador2()->setDireccion(Direcciones2::Abajo2);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Abajo2);//Cuando la tecla s es tecleada realiza las funciones de la direccion abajo definida para el jugador
 			break;
 
 		case Keys::K:
 
-			oControladora->getoJugador3()->setDireccion(Direcciones3::Abajo3);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Abajo3);//Cuando la tecla k es tecleada realiza las funciones de la direccion abajo definida para el jugador
 			break;
 
 		case Keys::C:
 
-			oControladora->getoJugador4()->setDireccion(Direcciones4::Abajo4);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Abajo4);//Cuando la tecla c es tecleada realiza las funciones de la direccion abajo definida para el jugador
 			break;
 
 
@@ -312,17 +325,17 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 
 		case Keys::A:
 
-			oControladora->getoJugador2()->setDireccion(Direcciones2::Izquierda2);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Izquierda2);//Cuando la a Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
 			break;
 
 		case Keys::J:
 
-			oControladora->getoJugador3()->setDireccion(Direcciones3::Izquierda3);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Izquierda3);//Cuando la tecla j es tecleada realiza las funciones de la direccion izquierda definida para el jugador
 			break;
 
 		case Keys::Z:
 
-			oControladora->getoJugador4()->setDireccion(Direcciones4::Izquierda4);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Izquierda4);//Cuando la tecla z es tecleada realiza las funciones de la direccion izquierda definida para el jugador
 			break;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -335,17 +348,17 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 
 		case Keys::D:
 
-			oControladora->getoJugador2()->setDireccion(Direcciones2::Derecha2);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Derecha2);//Cuando la tecla d es tecleada realiza las funciones de la direccion derecha definida para el jugador
 			break;
 
 		case Keys::L:
 
-			oControladora->getoJugador3()->setDireccion(Direcciones3::Derecha3);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Derecha3);//Cuando la tecla l es tecleada realiza las funciones de la direccion derecha definida para el jugador
 			break;
 
 		case Keys::V:
 
-			oControladora->getoJugador4()->setDireccion(Direcciones4::Derecha4);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Derecha4);//Cuando la tecla v es tecleada realiza las funciones de la direccion derecha definida para el jugador
 			break;
 
 		default:
@@ -364,17 +377,17 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			break;
 
 		case Keys::Q:
-			oControladora->agregarBomba2(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
+			oControladora->agregarBomba2(); // Cuando la tecla presionada es Q llama al metodo agregar bomba
 
 			break;
 
 		case Keys::U:
-			oControladora->agregarBomba3(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
+			oControladora->agregarBomba3(); // Cuando la tecla presionada es U llama al metodo agregar bomba
 
 			break;
 
 		case Keys::ShiftKey:
-			oControladora->agregarBomba4(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
+			oControladora->agregarBomba4(); // Cuando la tecla presionada es Shift llama al metodo agregar bomba
 
 			break;
 

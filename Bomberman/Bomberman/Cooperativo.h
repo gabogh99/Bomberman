@@ -216,52 +216,58 @@ namespace Bomberman {
 		this->Text = "              Vidas equipo 1: " + oControladora3->getoJugador()->getVidas() + oControladora3->getoJugador3()->getVidas() + "                        Vidas equipo 2: " + oControladora3->getoJugador2()->getVidas() +  oControladora3->getoJugador4()->getVidas(); //Muestra la cantidad de vidas
 		if ((oControladora3->getoJugador2()->getVidas() + oControladora3->getoJugador4()->getVidas()) == 0) {
 			this->Text = "																											Game Over:		Winners Equipo 1";
-			_sleep(3000);
-			oControladora3->getoJugador4()->setVidas(rand() % 6 + 5);
-			oControladora3->getoJugador2()->setVidas(rand() % 6 + 5);
-			oControladora3->getoJugador3()->setVidas(rand() % 6 + 5);
-			oControladora3->getoJugador()->setVidas(rand() % 6 + 5);
+			_sleep(3000); //Sleep para mostrar ganador
+			oControladora3->getoJugador4()->setVidas(rand() % 5 + 5); //Genera otro numero random de vidas 
+			oControladora3->getoJugador2()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora3->getoJugador3()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
+			oControladora3->getoJugador()->setVidas(rand() % 5 + 5);//Genera otro numero random de vidas 
 
-			oControladora3->getoJugador()->setX(50);
-			oControladora3->getoJugador()->setY(50);
+			oControladora3->getoJugador()->setX(50); //Devuelve el jugador a su posicion inicial de x
+			oControladora3->getoJugador()->setY(50);//Devuelve el jugador a su posicion inicial de y
+			oControladora3->getoJugador3()->setX(750); //Devuelve el jugador a su posicion inicial de x
+			oControladora3->getoJugador3()->setY(620);//Devuelve el jugador a su posicion inicial de y
 
-			reiniciar();
+			reiniciar();//Se reinicia el juego
 		}
 
 		if ((oControladora3->getoJugador()->getVidas() + oControladora3->getoJugador3()->getVidas()) == 0) {
 			this->Text = "																										Game Over:			Winners Equipo 2                             ";
 			_sleep(3000);
-			oControladora3->getoJugador4()->setVidas(rand() % 6 + 5);
-			oControladora3->getoJugador2()->setVidas(rand() % 6 + 5);
-			oControladora3->getoJugador3()->setVidas(rand() % 6 + 5);
-			oControladora3->getoJugador()->setVidas(rand() % 6 + 5);
-			oControladora3->getoJugador()->setX(50);
-			oControladora3->getoJugador()->setY(50);
-			reiniciar();
+			oControladora3->getoJugador4()->setVidas(rand() % 5 + 5);
+			oControladora3->getoJugador2()->setVidas(rand() % 5+ 5);
+			oControladora3->getoJugador3()->setVidas(rand() % 5 + 5);
+			oControladora3->getoJugador()->setVidas(rand() % 5 + 5);
+
+			oControladora3->getoJugador()->setX(50); //Devuelve el jugador a su posicion inicial de x
+			oControladora3->getoJugador()->setY(50);//Devuelve el jugador a su posicion inicial de y
+			oControladora3->getoJugador3()->setX(750); //Devuelve el jugador a su posicion inicial de x
+			oControladora3->getoJugador3()->setY(620);//Devuelve el jugador a su posicion inicial de y
+			
+			reiniciar(); //Se reinicia el juego
 		}
-
-
 
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
 	}
 
-
+		   /// <summary>
+		   /// Método para reiniciar la partida una vez finalizada
+		   /// </summary>
 		   void reiniciar() {
 
-			   oControladora3->CambiarNivel();
+			   oControladora3->CambiarNivel();//Se genera una matriz nueva, diferente a la anterior
 			   Graphics^ g = this->CreateGraphics();
 			   BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 			   BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 			   oControladora3->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpJugador2, bmpJugador3, bmpJugador4); //Se dibujan los bmp y se vuelven visuales en la ventana
 
-			   oControladora3->getoJugador2()->setX(750);
-			   oControladora3->getoJugador2()->setY(20);
-			   oControladora3->getoJugador3()->setX(750);
-			   oControladora3->getoJugador3()->setY(620);
-			   oControladora3->getoJugador4()->setX(50);
-			   oControladora3->getoJugador4()->setY(600);
+			   oControladora3->getoJugador2()->setX(750); //Se reinician la posicion en x del jugador 2
+			   oControladora3->getoJugador2()->setY(20);//Se reinician la posicion en y del jugador 2
+			   oControladora3->getoJugador3()->setX(750);//Se reinician la posicion en x del jugador 3
+			   oControladora3->getoJugador3()->setY(620);//Se reinician la posicion en y del jugador 3
+			   oControladora3->getoJugador4()->setX(50);//Se reinician la posicion en x del jugador 4
+			   oControladora3->getoJugador4()->setY(600);//Se reinician la posicion en y del jugador 4
 
 		   }
 
@@ -288,7 +294,17 @@ namespace Bomberman {
 
 		case Keys::W:
 
+			oControladora3->getoJugador2()->setDireccion(Direcciones2::Arriba2); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
+			break;
+
+		case Keys::I:
+
 			oControladora3->getoJugador3()->setDireccion(Direcciones3::Arriba3); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
+			break;
+
+		case Keys::X:
+
+			oControladora3->getoJugador4()->setDireccion(Direcciones4::Arriba4); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
 			break;
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -302,8 +318,18 @@ namespace Bomberman {
 
 		case Keys::S:
 
-			oControladora3->getoJugador3()->setDireccion(Direcciones3::Abajo3);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			oControladora3->getoJugador2()->setDireccion(Direcciones2::Abajo2);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
 
+			break;
+
+		case Keys::K:
+
+			oControladora3->getoJugador3()->setDireccion(Direcciones3::Abajo3);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			break;
+
+		case Keys::C:
+
+			oControladora3->getoJugador4()->setDireccion(Direcciones4::Abajo4);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
 			break;
 
 
@@ -317,7 +343,17 @@ namespace Bomberman {
 
 		case Keys::A:
 
+			oControladora3->getoJugador2()->setDireccion(Direcciones2::Izquierda2);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			break;
+
+		case Keys::J:
+
 			oControladora3->getoJugador3()->setDireccion(Direcciones3::Izquierda3);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			break;
+
+		case Keys::Z:
+
+			oControladora3->getoJugador4()->setDireccion(Direcciones4::Izquierda4);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
 			break;
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -330,7 +366,17 @@ namespace Bomberman {
 
 		case Keys::D:
 
-			oControladora3->getoJugador3()->setDireccion(Direcciones3::Derecha3);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			oControladora3->getoJugador2()->setDireccion(Direcciones2::Derecha2);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			break;
+
+		case Keys::L:
+
+			oControladora3->getoJugador3()->setDireccion(Direcciones3::Derecha3);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
+			break;
+
+		case Keys::V:
+
+			oControladora3->getoJugador4()->setDireccion(Direcciones4::Derecha4);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
 			break;
 
 
@@ -349,11 +395,27 @@ namespace Bomberman {
 			break;
 
 		case Keys::Q:
-			oControladora3->agregarBomba3();
+			oControladora3->agregarBomba2(); // Cuando la tecla presionada es Q llama al metodo agregar bomba
+
+			break;
+
+		case Keys::U:
+			oControladora3->agregarBomba3(); // Cuando la tecla presionada es U llama al metodo agregar bomba
+
+			break;
+
+		case Keys::ShiftKey:
+			oControladora3->agregarBomba4(); // Cuando la tecla presionada es Shift llama al metodo agregar bomba
+
+			break;
+
+
 
 		default:
 			oControladora3->getoJugador()->setDireccion(Direcciones::Ninguna); //Si no se presiona ninguna tecla el jugadore se detiene
-			oControladora3->getoJugador3()->setDireccion(Direcciones3::Ninguna3); //Si no se presiona ninguna tecla el jugadore se detiene
+			oControladora3->getoJugador2()->setDireccion(Direcciones2::Ninguna2);
+			oControladora3->getoJugador3()->setDireccion(Direcciones3::Ninguna3);
+			oControladora3->getoJugador4()->setDireccion(Direcciones4::Ninguna4);			
 			break;
 		}
 

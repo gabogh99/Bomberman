@@ -164,6 +164,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba3() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -195,6 +198,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba4() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -227,6 +233,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba5() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -258,6 +267,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba6() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -290,6 +302,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba7() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -322,6 +337,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba8() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -353,6 +371,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba9() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -384,6 +405,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba10() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -415,6 +439,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba11() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -446,6 +473,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 
 	void disminuir_Vidas_Por_Bomba12() {
 
@@ -478,6 +508,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba13() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -510,6 +543,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba14() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -542,6 +578,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba15() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -574,6 +613,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba16() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -808,6 +850,7 @@ public:
 		agarrarMejoras();
 		agarrarMejoras2();
 		agarrarMejoras3();
+		agarrarMejoras4();
 
 	}
 

@@ -172,6 +172,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba3() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -204,6 +207,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba4() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -237,6 +243,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba5() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -269,6 +278,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba6() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -302,6 +314,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba7() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -335,6 +350,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba8() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -367,6 +385,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba9() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -399,6 +420,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba10() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -432,6 +456,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba11() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -465,6 +492,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba12() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -497,6 +527,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba13() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -530,6 +563,9 @@ public:
 	}
 
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 	void disminuir_Vidas_Por_Bomba14() {
 
 		int PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
@@ -562,6 +598,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 
 	void disminuir_Vidas_Por_Bomba15() {
 
@@ -595,6 +634,9 @@ public:
 
 	}
 
+	/// <summary>
+	/// Método para disminuir vida del jugador por bomba
+	/// </summary>
 
 	void disminuir_Vidas_Por_Bomba16() {
 
@@ -629,31 +671,33 @@ public:
 
 
 	}
-
+	/// <summary>
+	/// Método que disminuye la cantidad de vida a la hora de chocar los jugadores
+	/// </summary>
 
 	void Disminucion() {
 
-		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo()) ) {
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo()) ) { //Se da si el jugador 1 y 2 colisionan
 
-			oJugador->disminuirVidas();
-			oJugador2->disminuirVidas();
+			oJugador->disminuirVidas(); //Disminuye las vidas del jugador 1
+			oJugador2->disminuirVidas();//Disminuye las vidas del jugador 2
 			oJugador2->setDX(0);
 			
 		}
 
-		if (oJugador->retornarRectangulo().IntersectsWith(oJugador3->retornarRectangulo())) {
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador3->retornarRectangulo())) {//Se da si el jugador 1 y 3 colisionan
 
-			oJugador->disminuirVidas();
-			oJugador3->disminuirVidas();
+			oJugador->disminuirVidas();//Disminuye las vidas del jugador 1
+			oJugador3->disminuirVidas();//Disminuye las vidas del jugador 3
 			oJugador3->setDY(0);
 			
 
 		}
 
-		if (oJugador->retornarRectangulo().IntersectsWith(oJugador4->retornarRectangulo())) {
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador4->retornarRectangulo())) { //Se da si el jugador 1 y 4 colisionan
 
-			oJugador->disminuirVidas();
-			oJugador4->disminuirVidas();
+			oJugador->disminuirVidas();//Disminuye las vidas del jugador 1
+			oJugador4->disminuirVidas();//Disminuye las vidas del jugador 4
 			oJugador4->setDY(0);
 
 		}

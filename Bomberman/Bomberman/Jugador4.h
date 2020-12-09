@@ -127,28 +127,34 @@ public:
 
 	}
 
+	/// <summary>
+/// Método que crea rectángulos transparentes para definir el área del jugador.
+/// Con estos se valida si es posible avanzar o si hay un bloque
+/// </summary>
+/// <param name="matriz"></param>
 
 	void ValidarMovimiento(int** matriz) {
 		int X, Y = 0;
 
-		for (int i = 0; i < filas; i++)
+		for (int i = 0; i < filas; i++)//Se recorren las filas del mpara
 		{
 			X = 0;
-			for (int j = 0; j < columnas; j++)
+			for (int j = 0; j < columnas; j++)//Se recorren las columnas del mapra
 
 			{
-				Rectangle c1 = Rectangle(X, Y, 50, 50);
+				Rectangle c1 = Rectangle(X, Y, 50, 50); //Se crea el rectángulo del área
 
 				if (matriz[i][j] == 1 || matriz[i][j] == 3) {
 
-					if (CDI.IntersectsWith(c1))dx = 0;
+					if (CDI.IntersectsWith(c1))dx = 0;//Si adelante del rectángulo hay un bloque fijo o un destruible, se detiene el movimiento
 					if (CAA.IntersectsWith(c1))dy = 0;
 
 				}
 
-				X += 50;
+				X += 50;//Se aumenta el movimiento x
 			}
-			Y += 50;
+			Y += 50;//Se aumenta el movimiento en y
+		
 		}
 	}
 
@@ -219,23 +225,31 @@ public:
 		x += dx;//Se cambia la posicion x de acuerdo al movimiento
 		y += dy; //Se cambia la posicion y de acuerdo al movimiento
 
-		if (vidas < 1) {
+		if (vidas < 1) { //Se valida si las vidas son menores a 1, cuando el jugador muere
 
 
-			ancho = 10;
+			ancho = 10; //Se define alto y ancho para dibujar la base
 			alto = 10;
-			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
-			vidas = 0;
+			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);//Se cambia el jugador por la base
+			vidas = 0; //Se hacen 0 para que no haya negativos
 
 
 		}
 
 		else {
-			ancho = 18;
+			ancho = 18; //Se confirma el ancho y alto para cambiarlo al reiniciar el juego
 			alto = 26;
 		}
 
 	}
+
+	/// <summary>
+	/// Método que realiza el movimiento automático de los enemigos
+	/// </summary>
+	/// <param name="g"></param>
+	/// <param name="bmpJugador2"></param>
+	/// <param name="bmpBase"></param>
+	/// <param name="matriz"></param>
 
 	void movimientoIA(Graphics^ g, Bitmap^ bmpJugador2, Bitmap^ bmpBase, int** matriz) {
 
@@ -258,23 +272,23 @@ public:
 
 		
 
-		indiceY = 0;
+		indiceY = 0; //Se define el indice del sprite
 
-			if (vidas < 1) {
+			if (vidas < 1) { 
 
 
-				ancho = 10;
+				ancho = 10; //Se define alto y ancho para dibujar la base
 				alto = 10;
-				g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
-				vidas = 0;
-				dy += 0;
+				g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);//Se cambia el jugador por la base
+				vidas = 0; //Se hacen 0 para que no haya negativos
+				dy += 0;//Se detiene el movimiento
 
 			}
 
 			else {
-				ancho = 18;
+				ancho = 18; //Se confirma el ancho y alto para cambiarlo al reiniciar el juego
 				alto = 26;
-				dy -= 0.3;
+				dy -= 0.3; // Se cambia el movimiento
 			}
 
 

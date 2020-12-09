@@ -199,7 +199,9 @@ namespace Bomberman {
 		delete buffer, espacio, g;
 
 	}
-
+		   /// <summary>
+		/// Método para reiniciar la partida una vez finalizada
+		/// </summary>
 
 		   void reiniciar() {
 
@@ -209,12 +211,13 @@ namespace Bomberman {
 			   BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 			   oControladora2->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpJugador2, bmpJugador3, bmpJugador4); //Se dibujan los bmp y se vuelven visuales en la ventana
 
-			   oControladora2->getoJugador2()->setX(750);
-			   oControladora2->getoJugador2()->setY(20);
-			   oControladora2->getoJugador3()->setX(750);
-			   oControladora2->getoJugador3()->setY(620);
-			   oControladora2->getoJugador4()->setX(50);
-			   oControladora2->getoJugador4()->setY(600);
+			   oControladora2->getoJugador2()->setX(750); //Se reinician la posicion en x del jugador 2
+			   oControladora2->getoJugador2()->setY(20);//Se reinician la posicion en y del jugador 2
+			   oControladora2->getoJugador3()->setX(750);//Se reinician la posicion en x del jugador 3
+			   oControladora2->getoJugador3()->setY(620);//Se reinician la posicion en y del jugador 3
+			   oControladora2->getoJugador4()->setX(50);//Se reinician la posicion en x del jugador 4
+			   oControladora2->getoJugador4()->setY(600);//Se reinician la posicion en y del jugador 4
+
 
 		   }
 
