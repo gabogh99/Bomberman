@@ -77,7 +77,9 @@ C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(538,21): warni
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(571,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(604,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(671,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(265,97): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(174,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(186,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(313,97): warning C4018: '<': signed/unsigned mismatch
   MenuPrincipal.cpp
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(39,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(39,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
@@ -182,7 +184,9 @@ C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(538,21): warni
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(571,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(604,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(671,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(265,97): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(174,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(186,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(313,97): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   Juego.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Bomberman.vcxproj -> C:\Users\Familia\source\repos\Bomberman\Debug\Bomberman.exe
