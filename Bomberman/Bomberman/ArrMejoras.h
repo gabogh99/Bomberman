@@ -51,6 +51,9 @@ public:
 	/// Método para elminiar la mejora
 	/// </summary>
 	/// <param name="pos"></param>
+
+
+
 	void eliminarenpos(int pos) {
 		vector_mejoras.erase(vector_mejoras.begin() + pos); //Se elimina la mejora al ser igual a la posición del jugador
 	}

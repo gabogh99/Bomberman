@@ -1,5 +1,5 @@
-#ifndef __CONTROLADORA_H__
-#define __CONTROLADORA_H__
+#ifndef __CONTROLADORA2_H__
+#define __CONTROLADORA2_H__
 #include "Escenario.h"
 #include "Jugador.h"
 #include "Jugador2.h"
@@ -16,11 +16,11 @@
 /// Clase que controla todas las funciones del juego
 /// </summary>
 
-class CControladora {
+class CControladora2 {
 
 public:
 
-	CControladora() {
+	CControladora2() {
 
 		/// <summary>
 		/// Se crean los objetos de todas clases incluidas
@@ -28,11 +28,11 @@ public:
 
 		oEscenario = new CEscenario();
 		oJugador = new CJugador(50, 50);
-		oJugador2 = new CJugador2(750, 50);
+		oJugador2 = new CJugador2(750, 20);
 		oJugador3 = new CJugador3(750, 600);
-		oJugador4 = new CJugador4(50,600);
-		
-		
+		oJugador4 = new CJugador4(50, 600);
+
+
 		oArrBombas = new CArrBombas();
 		oArrBombas2 = new CArrBombas2();
 		oArrBombas3 = new CArrBombas3();
@@ -48,7 +48,7 @@ public:
 
 
 
-	~CControladora() {}
+	~CControladora2() {}
 
 	/// <summary>
 	/// Método que genera matriz al cambiar de nivel
@@ -57,6 +57,8 @@ public:
 	void CambiarNivel() {
 
 		oEscenario->generarMatriz();
+
+
 
 	}
 
@@ -73,7 +75,9 @@ public:
 /// Método que agrega una bomba2 
 /// </summary>
 	void agregarBomba2() {
-		oArrBombas2->crear_una_bomba2(oJugador2->getX(), oJugador2->getY()); //Agarra una bomba del array y la coloca en las posiciones de x y y del jugador
+
+		if(oJugador->getX()==oJugador2->getX() || oJugador->getX() == oJugador2->getX())
+			oArrBombas2->crear_una_bomba2(oJugador2->getX(), oJugador2->getY()); //Agarra una bomba del array y la coloca en las posiciones de x y y del jugador
 
 	}
 
@@ -120,8 +124,11 @@ public:
 
 				oJugador2->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador2->setDX(0);
+				oJugador2->setDY(0);
 			}
+
+
 
 
 		}
@@ -157,7 +164,8 @@ public:
 
 				oJugador2->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador2->setDX(0);
+				oJugador2->setDY(0);
 			}
 
 		}
@@ -188,7 +196,8 @@ public:
 
 				oJugador2->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador2->setDX(0);
+				oJugador2->setDY(0);
 			}
 
 		}
@@ -219,7 +228,8 @@ public:
 
 				oJugador2->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador2->setDX(0);
+				oJugador2->setDY(0);
 			}
 
 		}
@@ -251,7 +261,8 @@ public:
 
 				oJugador4->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador4->setDX(0);
+				oJugador4->setDY(0);
 			}
 
 		}
@@ -282,7 +293,8 @@ public:
 
 				oJugador4->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador4->setDX(0);
+				oJugador4->setDY(0);
 			}
 
 		}
@@ -314,7 +326,8 @@ public:
 
 				oJugador4->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador4->setDX(0);
+				oJugador4->setDY(0);
 			}
 
 		}
@@ -346,7 +359,8 @@ public:
 
 				oJugador4->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador4->setDX(0);
+				oJugador4->setDY(0);
 			}
 
 		}
@@ -377,7 +391,8 @@ public:
 
 				oJugador->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador->setDX(0);
+				oJugador->setDY(0);
 			}
 
 		}
@@ -408,7 +423,8 @@ public:
 
 				oJugador->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador->setDX(0);
+				oJugador->setDY(0);
 			}
 
 		}
@@ -439,7 +455,8 @@ public:
 
 				oJugador->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador->setDX(0);
+				oJugador->setDY(0);
 			}
 
 		}
@@ -471,7 +488,8 @@ public:
 
 				oJugador->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador->setDX(0);
+				oJugador->setDY(0);
 			}
 
 		}
@@ -502,7 +520,8 @@ public:
 
 				oJugador3->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador3->setDX(0);
+				oJugador3->setDY(0);
 			}
 
 		}
@@ -534,7 +553,8 @@ public:
 
 				oJugador3->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador3->setDX(0);
+				oJugador3->setDY(0);
 			}
 
 		}
@@ -566,7 +586,8 @@ public:
 
 				oJugador3->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador3->setDX(0);
+				oJugador3->setDY(0);
 			}
 
 		}
@@ -598,7 +619,8 @@ public:
 
 				oJugador3->disminuirVidas(PuntaIzquierda, puntaDerecha, CentroInicioY, CentroFinalY,
 					PuntaSuperior, PuntaInferior, CentroInicioX, CentroFinalX); //Si el if es cieto, se disminuye la vida si la posicion del jugador es alguna de las definidas
-
+				oJugador3->setDX(0);
+				oJugador3->setDY(0);
 			}
 
 		}
@@ -645,39 +667,15 @@ public:
 
 	}
 
-	void agarrarMejoras2() {
+	void validaciones() {
 
-		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
-		{
-			if (oJugador2->retornarRectangulo().IntersectsWith(oArrMejoras->getvector_mejoras().at(i)->devolverR())) { // Si la posicion del jugador interseca con la posicion de mejoras empieza a funcionar
-
-				switch (oArrMejoras->getvector_mejoras().at(i)->getTipo_de_mejora()) //Se realiza un switch para validar todas las mejoras que hay
-				{
-				case 1: //Agregar una bomba
-					oArrBombas->setBombas(oArrBombas->getBombas() + 1); //Al agarrar esta se aumenta la cantidad de bombas que se pueden tirar 
-					break;
-				case 2://Mover una bomba
-					 //Permite mover una bomba ya colocada
-					break;
-				case 3: // Calavera
-					oJugador2->setVidas(oJugador->getVidas() - 1); //Al agarrarla se disminuye la vida
-					break;
-				case 4: //Patines
-					oJugador2->setAcelerar(oJugador->getAcelerar() + 3); // Se activa el método acelerar y el jugador aumenta la velocidad x3
-					break;
-				case 5: // Vidas
-					oJugador2->setVidas(oJugador->getVidas() + 1); // Se aumenta en  uno la vida
-					break;
-				default:
-					break;
-				}
-				oArrMejoras->eliminarenpos(i); //Se elimina el powerup en la posicion que se encuentre en el array
-
-
-			}
+		if (oJugador->getX() == oJugador3->getX()) {
+			oJugador3->setDY(0);
+			oJugador3->setDX(-0.15);
 		}
 
 	}
+
 
 	/// <summary>
 	/// Método para mostrar los bmps craedos en las respectivas clases
@@ -699,9 +697,11 @@ public:
 		oArrMejoras->dibujar(g, bmpMejoras, oEscenario->getmatriz());
 		oEscenario->PintarMatriz(g, bmpSolido, bmpDestruible);
 		oJugador->moverJugador(g, bmpJugador, oEscenario->getmatriz(), bmpBase);
-		oJugador2->moverJugador(g, bmpJugador2, bmpBase , oEscenario->getmatriz());
-		oJugador3->moverJugador(g, bmpJugador3, oEscenario->getmatriz(), bmpBase);
-		oJugador4->moverJugador(g, bmpJugador4, oEscenario->getmatriz(), bmpBase);
+
+
+		oJugador2->movimientoIA(g, bmpJugador2, bmpBase, oEscenario->getmatriz());
+		oJugador3->movimientoIA(g, bmpJugador3, bmpBase, oEscenario->getmatriz());
+		oJugador4->movimientoIA(g, bmpJugador4, bmpBase, oEscenario->getmatriz());
 
 		oArrBombas->Dibujar_una_bomba(g, bmpBomba, bmpExplosion, oJugador->getX(), oJugador->getY(), oEscenario->getmatriz());
 		oArrBombas2->Dibujar_una_bomba(g, bmpBomba, bmpExplosion, oJugador2->getX(), oJugador2->getY(), oEscenario->getmatriz());
@@ -725,6 +725,8 @@ public:
 		disminuir_Vidas_Por_Bomba15();
 		disminuir_Vidas_Por_Bomba16();
 		agarrarMejoras();
+
+		validaciones();
 
 	}
 
@@ -798,7 +800,7 @@ private:
 
 
 	CArrMejoras* oArrMejoras;
-	
+
 
 	int nivel;
 	bool habilidad;
@@ -808,4 +810,4 @@ private:
 
 
 
-#endif // !__CONTROLADORA_H__
+#endif // !__CONTROLADORA2_H__

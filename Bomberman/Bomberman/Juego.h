@@ -1,5 +1,6 @@
 #pragma once
 #include "Controladora.h"
+
 namespace Bomberman {
 
 	using namespace System;
@@ -33,26 +34,35 @@ namespace Bomberman {
 		Bitmap^ bmpBomba = gcnew Bitmap("Imagenes\\bomba.png");
 		Bitmap^ bmpExplosion = gcnew Bitmap("Imagenes\\explosion.png");
 		Bitmap^ bmpMejoras = gcnew Bitmap("Imagenes\\mejoras.png");
-		Bitmap^ bmpEnemigo = gcnew Bitmap("Imagenes\\bmpEnemigo.png");
+		Bitmap^ bmpJugador2 = gcnew Bitmap("Imagenes\\Jugador2.png");
+		Bitmap^ bmpJugador3 = gcnew Bitmap("Imagenes\\Jugador3.png");
+		Bitmap^ bmpJugador4 = gcnew Bitmap("Imagenes\\Jugador4.png");
+
 
 	public:
 		Juego(void)
 		{
+			
+
+				InitializeComponent(); //Se inicializa el juego
+
+				oControladora = new CControladora(); //Se crea el objeto Controladora
+
+				bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
+				bmpJugador2->MakeTransparent(bmpJugador2->GetPixel(0, 0));
+				bmpJugador3->MakeTransparent(bmpJugador3->GetPixel(0, 0));
+				bmpJugador4->MakeTransparent(bmpJugador4->GetPixel(0, 0));
 
 
-			InitializeComponent(); //Se inicializa el juego
-
-			oControladora = new CControladora(); //Se crea el objeto Controladora
-
-			bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
-			bmpBomba->MakeTransparent(bmpBomba->GetPixel(0, 0));
-			bmpExplosion->MakeTransparent(bmpExplosion->GetPixel(0, 0));
-			bmpEnemigo->MakeTransparent(bmpEnemigo->GetPixel(0, 0));
+				bmpBomba->MakeTransparent(bmpBomba->GetPixel(0, 0));
+				bmpExplosion->MakeTransparent(bmpExplosion->GetPixel(0, 0));
+				
 
 
-			//
-			//TODO: Add the constructor code here
-			//
+				//
+				//TODO: Add the constructor code here
+				//
+			
 		}
 
 	protected:
@@ -108,15 +118,15 @@ namespace Bomberman {
 			this->lbNivel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbNivel->ForeColor = System::Drawing::Color::White;
-			this->lbNivel->Location = System::Drawing::Point(327, 233);
+			this->lbNivel->Location = System::Drawing::Point(315, 231);
 			this->lbNivel->Name = L"lbNivel";
 			this->lbNivel->Size = System::Drawing::Size(80, 29);
 			this->lbNivel->TabIndex = 0;
-			this->lbNivel->Text = L"Nivel:";
+			this->lbNivel->Text = L"Multijugador";
 			// 
 			// Progress bar de carga del juego 
 			// 
-			this->pbCarga->Location = System::Drawing::Point(287, 315);
+			this->pbCarga->Location = System::Drawing::Point(327, 315);
 			this->pbCarga->Name = L"pbCarga";
 			this->pbCarga->Size = System::Drawing::Size(161, 23);
 			this->pbCarga->TabIndex = 1;
@@ -164,12 +174,73 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		Graphics^ g = this->CreateGraphics();
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
-		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpEnemigo); //Se dibujan los bmp y se vuelven visuales en la ventana
-		this->Text = "" + oControladora->getoJugador()->getVidas(); //Muestra la cantidad de vidas
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpJugador2, bmpJugador3, bmpJugador4); //Se dibujan los bmp y se vuelven visuales en la ventana
+
+		if (oControladora->getoJugador()->getVidas() == 0 && oControladora->getoJugador2()->getVidas() == 0 && oControladora->getoJugador3()->getVidas() == 0 && oControladora->getoJugador4()->getVidas() != 0) {
+			this->Text = "																													Game Over:  Winner Player 4";
+			_sleep(3000);
+			oControladora->getoJugador()->setVidas(rand()%6+5 );
+			oControladora->getoJugador2()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador3()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador4()->setX(50);
+			oControladora->getoJugador4()->setY(600);
+
+
+			reiniciar();	
+		}
+		if (oControladora->getoJugador()->getVidas() == 0 && oControladora->getoJugador2()->getVidas() == 0 && oControladora->getoJugador4()->getVidas() == 0 && oControladora->getoJugador3()->getVidas() != 0) {
+			this->Text = "																													Game Over:  Winner Player 3";
+			_sleep(3000);
+			oControladora->getoJugador()->setVidas(3);
+			oControladora->getoJugador2()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador4()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador3()->setX(50);
+			oControladora->getoJugador3()->setY(600);
+			reiniciar();
+		}
+		if (oControladora->getoJugador()->getVidas() == 0 && oControladora->getoJugador4()->getVidas() == 0 && oControladora->getoJugador3()->getVidas() == 0 && oControladora->getoJugador2()->getVidas() != 0) {
+			this->Text = "																													Game Over:  Winner Player 2";
+			_sleep(3000);
+			oControladora->getoJugador()->setVidas(3);
+			oControladora->getoJugador4()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador3()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador2()->setX(50);
+			oControladora->getoJugador2()->setY(600);
+			reiniciar();
+		}
+		if (oControladora->getoJugador2()->getVidas() == 0 && oControladora->getoJugador4()->getVidas() == 0 && oControladora->getoJugador3()->getVidas() == 0 && oControladora->getoJugador()->getVidas() != 0) {
+			this->Text = "																													Game Over:  Winner Player 1";
+			_sleep(3000);
+			oControladora->getoJugador4()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador2()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador3()->setVidas(rand() % 6 + 5);
+			oControladora->getoJugador()->setX(50);
+			oControladora->getoJugador()->setY(600);
+
+			reiniciar();
+		}
+		else
+		{
+			this->Text = "              Vidas Jugador 1: " + oControladora->getoJugador()->getVidas() + "                        Vidas Jugador 2: " + oControladora->getoJugador2()->getVidas() + "                        Vidas Jugador 3: " + oControladora->getoJugador3()->getVidas() + "                    Vidas Jugador 4: " + oControladora->getoJugador4()->getVidas(); //Muestra la cantidad de vidas
+
+		}
+		
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
 	}
+
+	   void reiniciar() {
+
+		   oControladora->CambiarNivel();
+		   Graphics^ g = this->CreateGraphics();
+		   BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
+		   BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
+		   oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpJugador2, bmpJugador3, bmpJugador4); //Se dibujan los bmp y se vuelven visuales en la ventana
+
+
+
+	   }
 
 	/// <summary>
 	/// Se carga el juego mostrando la barra de carga y el nivel actual
@@ -177,8 +248,8 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
 	/// <returns></returns>
-	private: System::Void Juego_Load(System::Object^ sender, System::EventArgs^ e) {
-		lbNivel->Text = "Nivel: " + oControladora->getNivel();
+	public: System::Void Juego_Load(System::Object^ sender, System::EventArgs^ e) {
+		lbNivel->Text = "MULTIJUGADOR " ;
 		oControladora->CambiarNivel();
 	}
 	private: System::Void Juego_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) { //Validacion de los controles del teclado
@@ -186,24 +257,95 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		switch (e->KeyCode)
 		{
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		case Keys::Up:
 
 			oControladora->getoJugador()->setDireccion(Direcciones::Arriba); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
 			break;
+
+		case Keys::W:
+
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Arriba2); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
+			break;
+
+		case Keys::I:
+
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Arriba3); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
+			break;
+
+		case Keys:: X:
+
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Arriba4); //Cuando la tecla Up es tecleada realiza las funciones de la direccion arriba definida para el jugador
+			break;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 		case Keys::Down:
 
 			oControladora->getoJugador()->setDireccion(Direcciones::Abajo);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
 			break;
 
+		case Keys::S:
+
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Abajo2);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			break;
+
+		case Keys::K:
+
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Abajo3);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			break;
+
+		case Keys::C:
+
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Abajo4);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			break;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 		case Keys::Left:
 
 			oControladora->getoJugador()->setDireccion(Direcciones::Izquierda);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
 			break;
 
+		case Keys::A:
+
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Izquierda2);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			break;
+
+		case Keys::J:
+
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Izquierda3);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			break;
+
+		case Keys::Z:
+
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Izquierda4);//Cuando la tecla Left es tecleada realiza las funciones de la direccion izquierda definida para el jugador
+			break;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 		case Keys::Right:
 
 			oControladora->getoJugador()->setDireccion(Direcciones::Derecha);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
+			break;
+
+		case Keys::D:
+
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Derecha2);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
+			break;
+
+		case Keys::L:
+
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Derecha3);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
+			break;
+
+		case Keys::V:
+
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Derecha4);//Cuando la tecla Right es tecleada realiza las funciones de la direccion derecha definida para el jugador
 			break;
 
 		default:
@@ -221,28 +363,50 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 
 			break;
 
+		case Keys::Q:
+			oControladora->agregarBomba2(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
 
+			break;
+
+		case Keys::U:
+			oControladora->agregarBomba3(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
+
+			break;
+
+		case Keys::ShiftKey:
+			oControladora->agregarBomba4(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
+
+			break;
 
 
 		default:
 
 			oControladora->getoJugador()->setDireccion(Direcciones::Ninguna); //Si no se presiona ninguna tecla el jugadore se detiene
+			oControladora->getoJugador2()->setDireccion(Direcciones2::Ninguna2);
+			oControladora->getoJugador3()->setDireccion(Direcciones3::Ninguna3);
+			oControladora->getoJugador4()->setDireccion(Direcciones4::Ninguna4);
+
 			break;
 		}
 
 
 	}
 
+
+	
+
 	/// <summary>
 	/// Se crea el timer de carga
 	/// </summary>
 
 	private: System::Void trCarga_Tick(System::Object^ sender, System::EventArgs^ e) {
-		lbNivel->Text = "Nivel: " + oControladora->getNivel(); //Se cambia el texto en el label según el nivel
+		lbNivel->Text = "MULTIJUGADOR " ; //Se cambia el texto en el label según el nivel
 		pbCarga->Increment(10); //Incrementa el progessBar de carga
-		if (trCarga->Interval == 2500 && oControladora->getoArrEnemigos()->getarregloEnemigos().size() < oControladora->getNivel()) {
+		if (trCarga->Interval == 2500 && oControladora->getoArrMejoras()->getvector_mejoras().size() < oControladora->getNivel())
+		{
 			oControladora->crear_enemigos_y_mejoras(); //Se crean los enemigos y mejoras
 		}
+		
 
 		else { //Al hacerse falso el timer de carga, se hace verdadero el timer 1 del juego y los labels y progressBar se deshabilitan.
 			trCarga->Enabled = false;

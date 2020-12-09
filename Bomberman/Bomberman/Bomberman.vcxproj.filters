@@ -21,6 +21,9 @@
     <ClCompile Include="MenuPrincipal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Jugar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -47,13 +50,40 @@
     <ClInclude Include="ArrMejoras.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemigo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrEnemigos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MenuPrincipal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Jugador2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrBombas2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomba2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Jugador3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomba3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrBombas3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Jugador4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomba4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrBombas4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Jugar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controladora2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

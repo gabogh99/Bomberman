@@ -121,20 +121,32 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Juego.cpp" />
+    <ClCompile Include="Jugar.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrBombas.h" />
-    <ClInclude Include="ArrEnemigos.h" />
+    <ClInclude Include="ArrBombas2.h" />
+    <ClInclude Include="ArrBombas3.h" />
+    <ClInclude Include="ArrBombas4.h" />
     <ClInclude Include="ArrMejoras.h" />
     <ClInclude Include="Bomba.h" />
+    <ClInclude Include="Bomba2.h" />
+    <ClInclude Include="Bomba3.h" />
+    <ClInclude Include="Bomba4.h" />
     <ClInclude Include="Controladora.h" />
-    <ClInclude Include="Enemigo.h" />
+    <ClInclude Include="Controladora2.h" />
     <ClInclude Include="Escenario.h" />
     <ClInclude Include="Juego.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Jugador.h" />
+    <ClInclude Include="Jugador2.h" />
+    <ClInclude Include="Jugador3.h" />
+    <ClInclude Include="Jugador4.h" />
+    <ClInclude Include="Jugar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Mejora.h" />
     <ClInclude Include="MenuPrincipal.h">
       <FileType>CppForm</FileType>
@@ -143,6 +155,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Juego.resx">
       <DependentUpon>Juego.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jugar.resx">
+      <DependentUpon>Jugar.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.h</DependentUpon>

@@ -1,14 +1,14 @@
-#ifndef __BOMBA_H__
-#define __BOMBA_H__
+#ifndef __BOMBA3_H__
+#define __BOMBA3_H__
 using namespace System::Drawing;
 
 /// <summary>
 /// Clase que crea y dibuja las bombas
 /// </summary>
 
-enum Estado { normal, explosion, desaparecer }; // Se crean estado para la animacion de la bomba
+enum Estado3 { normal3, explosion3, desaparecer3 }; // Se crean estado para la animacion de la bomba
 
-class CBomba
+class CBomba3
 {
 public:
 	/// <summary>
@@ -18,11 +18,11 @@ public:
 	/// <param name="y"></param>
 
 
-	CBomba(int x, int y) {
+	CBomba3(int x, int y) {
 
 		this->x = x;
 		this->y = y;
-		estado = Estado::normal; //Se inicializa el estado en normal, como está al colocarla
+		estado3 = Estado3::normal3; //Se inicializa el estado en normal, como está al colocarla
 
 		ancho = 66 / 3; //Ancho de sprites entre cantidad de animaciones
 		alto = 24; //Alto de sprites
@@ -42,7 +42,7 @@ public:
 
 
 	}
-	~CBomba() {}
+	~CBomba3() {}
 
 	/// <summary>
 	/// Método que define el áera que ocupa la bomba
@@ -58,9 +58,9 @@ public:
 	/// <param name="yJugador"></param>
 	/// <param name="matriz"></param>
 	/// <returns></returns>
-	bool validarLugar(int xJugador, int yJugador, int** matriz) {
+	bool validarLugar(int xJugador3, int yJugador3, int** matriz) {
 
-		if (matriz[yJugador / 50][xJugador / 50] == 0 || matriz[yJugador / 50][xJugador / 50] == 2) //Valida con los valores dados de la matriz si se puede colocar la bomba
+		if (matriz[yJugador3 / 50][xJugador3 / 50] == 0 || matriz[yJugador3 / 50][xJugador3 / 50] == 2) //Valida con los valores dados de la matriz si se puede colocar la bomba
 			return true;
 		else
 			return false; //Para los casos donde haya bloques fijos no se pueden colocar
@@ -74,18 +74,18 @@ public:
 	/// <param name="xJugador"></param>
 	/// <param name="yJugador"></param>
 	/// <param name="matriz"></param>
-	void dibujarBomba(Graphics^ g, Bitmap^ bmpBomba, int xJugador, int yJugador, int** matriz) {
+	void dibujarBomba(Graphics^ g, Bitmap^ bmpBomba2, int xJugador3, int yJugador3, int** matriz) {
 
-		if (validarLugar(xJugador, yJugador, matriz) == true) { //Determina si la validación anterior es verdadera
+		if (validarLugar(xJugador3, yJugador3, matriz) == true) { //Determina si la validación anterior es verdadera
 
 			Rectangle porcionAUsar = Rectangle(indiceX * ancho, 0, ancho, alto); ///Se define el espacio a utilizar de los sprites
 			Rectangle aumento = Rectangle(x, y, 40, 40);
-			g->DrawImage(bmpBomba, aumento, porcionAUsar, GraphicsUnit::Pixel); //Se dibuja la bomba normal con su bmp
+			g->DrawImage(bmpBomba2, aumento, porcionAUsar, GraphicsUnit::Pixel); //Se dibuja la bomba normal con su bmp
 		}
 
 
 
-		if (tiempo_antes_de_explotar == 6) { estado = Estado::explosion; }//Cuando el tiempo de explosion llega a 6, el estado cambia a explosion
+		if (tiempo_antes_de_explotar == 6) { estado3 = Estado3::explosion3; }//Cuando el tiempo de explosion llega a 6, el estado cambia a explosion
 	}
 
 	/// <summary>
@@ -181,7 +181,7 @@ public:
 			indiceEX++;
 		else
 		{
-			estado = Estado::desaparecer;//Luego de la explosion se pasa al estado desaparecer
+			estado3 = Estado3::desaparecer3;//Luego de la explosion se pasa al estado desaparecer
 		}
 	}
 
@@ -190,8 +190,8 @@ public:
 	/// </summary>
 	/// <returns></returns>
 
-	Estado getEstado() {
-		return estado;
+	Estado3 getEstado() {
+		return estado3;
 	}
 
 	/// <summary>
@@ -232,10 +232,6 @@ public:
 		tiempo_antes_de_explotar = v;
 	}
 
-	int getTiempo() {
-		return tiempo_antes_de_explotar;
-	}
-
 private: //Datos definidos de la explosion
 
 	int indiceEX;
@@ -256,15 +252,8 @@ private:  //Datos definidos de la bomba
 
 	int tiempo_antes_de_explotar;
 
-	Estado estado;
+	Estado3 estado3;
 
 };
 
-
-
-
-
-
-
-
-#endif // !__BOMBA_H__
+#endif // !__BOMBA3_H__

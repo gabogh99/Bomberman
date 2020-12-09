@@ -4,9 +4,7 @@
 #include <stdlib.h>
 
 /*
-
 Se define la cantidad de filas y columnas para el escenario de juego
-
 */
 
 #define filas 15
@@ -21,13 +19,13 @@ using namespace System::Drawing;
 class CEscenario {
 
 
-/// <summary>
-/// Se inicializan los objetos del escenario
-/// </summary>
+	/// <summary>
+	/// Se inicializan los objetos del escenario
+	/// </summary>
 
 public:
 	CEscenario() {
-		matriz = new int*[filas];
+		matriz = new int* [filas];
 	}
 
 	~CEscenario() {}
@@ -47,7 +45,7 @@ public:
 
 			matriz[i] = new int[columnas];
 
-		} 
+		}
 
 		/// <summary>
 		/// Función for que recorre filas y columnas y define los limites laterales del mapa
@@ -69,10 +67,10 @@ public:
 						matriz[i][j] = 1;
 					else
 					{
-						if ((i == 1 && (j == 1 || j == 2)) || (j == 1 && i == 2) || (i == filas - 2 && (j == columnas - 3 || j == columnas - 2)) || (i == filas - 3 && j == columnas - 2)) // Genera zonas libres donde el jugador aparece al iniciar el jeugo.
+						if ((i == 1 && (j == 1 || j == 2 || j == 14 || j == 15)) || (j == 1 && i == 2) || (j == 15 && i == 2) || (i == filas - 2 && (j == columnas - 3 || j == columnas - 2)) || (i == filas - 3 && j == columnas - 2) || (i == filas - 2 && (j == 2 || j == 1)) || (i == filas - 3 && j == 1)) // Genera zonas libres donde el jugador aparece al iniciar el jeugo.
 							matriz[i][j] = 0; //Le da un valor de 0 a los bloques en los que se puede transitar
 
-						else  
+						else
 						{
 							matriz[i][j] = rand() % 2 + 2; //Genera bloques destruibles aleatorios para que el mapa sea diferente, y a estos les da un valor de 2, los demás quedan como 0
 						}
@@ -93,17 +91,17 @@ public:
 	/// <param name="g"></param>
 	/// <param name="bmpBase"></param>
 
-	void PintarBase(Graphics^g, Bitmap^bmpBase) {
+	void PintarBase(Graphics^ g, Bitmap^ bmpBase) {
 
 		int X, Y = 0; // Se definen las posiciones finales de los bloques y se inicializan en 0
 
-		for (int i = 0; i < filas; i++) 
+		for (int i = 0; i < filas; i++)
 		{
 			X = 0;
 			for (int j = 0; j < columnas; j++) //Se recorren las filas y columnas de la matriz
 			{
 
-				
+
 				if (matriz[i][j] == 0 || matriz[i][j] == 2) //Verifica la posición de matri tiene un valor de 0 o 2, para dibujar los espacios transitables
 
 					g->DrawImage(bmpBase, X, Y, 50, 50);// Dibuja el bmp que contiene el bloque de zona transitable
@@ -124,7 +122,7 @@ public:
 	/// <param name="bmpSolido"></param>
 	/// <param name="bmpDestruible"></param>
 
-	void PintarMatriz(Graphics^g, Bitmap^bmpSolido, Bitmap^bmpDestruible) {
+	void PintarMatriz(Graphics^ g, Bitmap^ bmpSolido, Bitmap^ bmpDestruible) {
 
 		int X, Y = 0; // Se inicializan las posiciones en 0
 
@@ -167,7 +165,7 @@ public:
 
 private:
 
-	int **matriz; /// Se define la matriz
+	int** matriz; /// Se define la matriz
 
 };
 
@@ -175,4 +173,3 @@ private:
 
 
 #endif // !__ESCENARIO_H__
-

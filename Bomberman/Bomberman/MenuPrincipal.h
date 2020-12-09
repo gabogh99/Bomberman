@@ -1,5 +1,6 @@
 #pragma once
 #include"Juego.h"
+#include"Jugar.h"
 
 namespace Bomberman {
 
@@ -19,7 +20,7 @@ namespace Bomberman {
 
 		//Se crea el soundPlayer para la musica
 	private:
-		SoundPlayer^ Music;
+	//	SoundPlayer^ Music;
 
 	public:
 		MenuPrincipal(void)
@@ -45,7 +46,7 @@ namespace Bomberman {
 		//Se inicializan los componentes del  menu principal
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
-	private: System::Windows::Forms::Button^ btnInstruccionesDesaparecer;
+
 	private: System::Windows::Forms::Button^ btnInstrucionesAparecer;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
@@ -68,11 +69,8 @@ namespace Bomberman {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-
-			//Se crean los componentes del  menu principal
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuPrincipal::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->btnInstruccionesDesaparecer = (gcnew System::Windows::Forms::Button());
 			this->btnInstrucionesAparecer = (gcnew System::Windows::Forms::Button());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
@@ -96,23 +94,13 @@ namespace Bomberman {
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
-			// btnInstruccionesDesaparecer
-			// 
-			this->btnInstruccionesDesaparecer->Location = System::Drawing::Point(145, 343);
-			this->btnInstruccionesDesaparecer->Name = L"btnInstruccionesDesaparecer";
-			this->btnInstruccionesDesaparecer->Size = System::Drawing::Size(91, 23);
-			this->btnInstruccionesDesaparecer->TabIndex = 1;
-			this->btnInstruccionesDesaparecer->Text = L"Instrucciones";
-			this->btnInstruccionesDesaparecer->UseVisualStyleBackColor = true;
-			this->btnInstruccionesDesaparecer->Click += gcnew System::EventHandler(this, &MenuPrincipal::btnInstruccionesDesaparecer_Click);
-			// 
 			// btnInstrucionesAparecer
 			// 
-			this->btnInstrucionesAparecer->Location = System::Drawing::Point(145, 343);
+			this->btnInstrucionesAparecer->Location = System::Drawing::Point(145, 285);
 			this->btnInstrucionesAparecer->Name = L"btnInstrucionesAparecer";
 			this->btnInstrucionesAparecer->Size = System::Drawing::Size(91, 23);
 			this->btnInstrucionesAparecer->TabIndex = 2;
-			this->btnInstrucionesAparecer->Text = L"Instrucciones";
+			this->btnInstrucionesAparecer->Text = L"Jugar";
 			this->btnInstrucionesAparecer->UseVisualStyleBackColor = true;
 			this->btnInstrucionesAparecer->Click += gcnew System::EventHandler(this, &MenuPrincipal::btnInstrucionesAparecer_Click);
 			// 
@@ -182,11 +170,11 @@ namespace Bomberman {
 			// 
 			// btnJugar
 			// 
-			this->btnJugar->Location = System::Drawing::Point(145, 296);
+			this->btnJugar->Location = System::Drawing::Point(145, 353);
 			this->btnJugar->Name = L"btnJugar";
 			this->btnJugar->Size = System::Drawing::Size(91, 23);
 			this->btnJugar->TabIndex = 9;
-			this->btnJugar->Text = L"Jugar";
+			this->btnJugar->Text = L"Multijugador";
 			this->btnJugar->UseVisualStyleBackColor = true;
 			this->btnJugar->Click += gcnew System::EventHandler(this, &MenuPrincipal::btnJugar_Click);
 			// 
@@ -203,7 +191,6 @@ namespace Bomberman {
 			this->Controls->Add(this->btnInstrucionesAparecer);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
-			this->Controls->Add(this->btnInstruccionesDesaparecer);
 			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MenuPrincipal";
 			this->Text = L"MenuPrincipal";
@@ -221,8 +208,8 @@ namespace Bomberman {
 		/// Método para reproducir musica del inicio en loop
 		/// </summary>
 		void Musica() {
-			Music = gcnew SoundPlayer("Sonido\\MusicaIntro.wav");
-			Music->PlayLooping();
+			//Music = gcnew SoundPlayer("Sonido\\MusicaIntro.wav");
+			//Music->PlayLooping();
 		}
 
 	/// <summary>
@@ -231,7 +218,7 @@ namespace Bomberman {
 	private: System::Void btnInstruccionesDesaparecer_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 		this->Width = 500;
-		btnInstruccionesDesaparecer->Visible = false;
+	//	btnInstruccionesDesaparecer->Visible = false;
 		btnInstrucionesAparecer->Visible = true;
 	}
 
@@ -241,9 +228,9 @@ namespace Bomberman {
 		   /// </summary>
 private: System::Void btnInstrucionesAparecer_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	this->Width = 850;
-	btnInstruccionesDesaparecer->Visible = true;
-	btnInstrucionesAparecer->Visible = false;
+	Jugar^ frame = gcnew Jugar();// Se crea el juego
+	this->Visible = false;
+	frame->Show();;
 
 }
 
@@ -259,7 +246,7 @@ private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ 
 	Juego^ frm = gcnew Juego();// Se crea el juego
 	this->Visible = false;
 	frm->Show();
-	Music->Stop(); //Se detiene la musica del menu
+	//Music->Stop(); //Se detiene la musica del menu
 
 }
 

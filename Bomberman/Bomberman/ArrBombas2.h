@@ -1,9 +1,9 @@
-#ifndef __ARRBOMBAS_H__
-#define __ARRBOMBAS_H__
+#ifndef __ARRBOMBAS2_H__
+#define __ARRBOMBAS2_H__
 
 
 
-#include "Bomba.h"
+#include "Bomba2.h"
 #include <vector>
 using namespace std;
 
@@ -11,17 +11,17 @@ using namespace std;
 /// Clase que crea un arreglo de bombas
 /// </summary>
 
-class CArrBombas
+class CArrBombas2
 {
 public:
 
 	//Se inicializa el objeto y se le permite solamente lanzar una bomba 
 
-	CArrBombas() { totalBombas = rand() % 6 + 1; }
+	CArrBombas2() { totalBombas2 = rand() % 6 + 1; }
 
 
 
-	~CArrBombas() {}
+	~CArrBombas2() {}
 
 	/// <summary>
 	/// Método para crear una bomba
@@ -29,11 +29,11 @@ public:
 	/// <param name="x"></param>
 	/// <param name="y"></param>
 
-	void crear_una_bomba(int x, int y) {
+	void crear_una_bomba2(int x, int y) {
 
-		if (arregloBombas.size() < totalBombas) { //Valida si el array es menor a la cantida de bombas
-			CBomba* nueva_bomba = new CBomba(x, y); // Se crea un objeto bomba
-			arregloBombas.push_back(nueva_bomba); // Se añade la bomba al final del array de bombas
+		if (arregloBombas2.size() < totalBombas2) { //Valida si el array es menor a la cantida de bombas
+			CBomba2* nueva_bomba = new CBomba2(x, y); // Se crea un objeto bomba
+			arregloBombas2.push_back(nueva_bomba); // Se añade la bomba al final del array de bombas
 		}
 	}
 
@@ -49,23 +49,23 @@ public:
 
 	void Dibujar_una_bomba(Graphics^ g, Bitmap^ bmpBomba, Bitmap^ bmpExplosion, int xJugador, int yJugador, int** matriz) {
 
-		for (int i = 0; i < arregloBombas.size(); i++) //Se recorre el array de bombas
+		for (int i = 0; i < arregloBombas2.size(); i++) //Se recorre el array de bombas
 		{
-			switch (arregloBombas.at(i)->getEstado()) // Se hace un switch para validar los estados
+			switch (arregloBombas2.at(i)->getEstado()) // Se hace un switch para validar los estados
 			{
 
 			case Estado::normal:
-				arregloBombas.at(i)->dibujarBomba(g, bmpBomba, xJugador, yJugador, matriz); //Si el estado es normal, se dibuja una bomba con el bmp de la bomba normal
-				arregloBombas.at(i)->animar(); //Se realiza la animación de la posición i del array
+				arregloBombas2.at(i)->dibujarBomba(g, bmpBomba, xJugador, yJugador, matriz); //Si el estado es normal, se dibuja una bomba con el bmp de la bomba normal
+				arregloBombas2.at(i)->animar(); //Se realiza la animación de la posición i del array
 				break;
 
 			case Estado::explosion:
-				arregloBombas.at(i)->DibujarExplosion(g, bmpExplosion, matriz); //Si el estado es de explosion se dibuja con el bmp de la explosion antes definida
-				arregloBombas.at(i)->animarExplosion();//Se realiza la animación
+				arregloBombas2.at(i)->DibujarExplosion(g, bmpExplosion, matriz); //Si el estado es de explosion se dibuja con el bmp de la explosion antes definida
+				arregloBombas2.at(i)->animarExplosion();//Se realiza la animación
 				break;
 
 			case Estado::desaparecer:
-				arregloBombas.erase(arregloBombas.begin() + i);//Si el estado es desaparecer se borra la bomba del array y se cambia de posición
+				arregloBombas2.erase(arregloBombas2.begin() + i);//Si el estado es desaparecer se borra la bomba del array y se cambia de posición
 				break;
 
 			default:
@@ -79,8 +79,8 @@ public:
 	/// Método que retorna el array de bombas
 	/// </summary>
 	/// <returns></returns>
-	vector<CBomba*>getarregloBombas() {
-		return arregloBombas;
+	vector<CBomba2*>getarregloBombas() {
+		return arregloBombas2;
 	}
 
 	/// <summary>
@@ -88,7 +88,7 @@ public:
 	/// </summary>
 	/// <param name="v"></param>
 	void setBombas(int v) {
-		totalBombas = v;
+		totalBombas2 = v;
 	}
 
 	/// <summary>
@@ -96,22 +96,20 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	int getBombas() {
-		return totalBombas;
+		return totalBombas2;
 	}
-
-
 
 	/// <summary>
 	/// Se definen los atributos de la clase
 	/// </summary>
 
 private:
-	vector<CBomba*>arregloBombas;
-	int totalBombas;
+	vector<CBomba2*>arregloBombas2;
+	int totalBombas2;
 
 
 };
 
 
 
-#endif // !__ARRBOMBAS_H__
+#endif // !__ARRBOMBAS2_H__

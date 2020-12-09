@@ -1,32 +1,36 @@
-#ifndef __JUGADOR_H__
-#define __JUGADOR_H__
-#include <ctime>
-#include <stdlib.h>
-#include "Jugador2.h"
+#ifndef __JUGADOR4_H__
+#define __JUGADOR4_H__
+
+#define filas 15
+#define columnas 17
 
 using namespace System::Drawing;
 
+
 //Se definen direcciones para cambiar las direcciones del jugador
-enum Direcciones{Arriba, Abajo, Izquierda, Derecha, Ninguna};
+enum Direcciones4 { Arriba4, Abajo4, Izquierda4, Derecha4, Ninguna4};
 
 /// <summary>
 /// Clase que crea al jugador 
 /// </summary>
 
-class CJugador {
+class CJugador4 {
 
 public:
 
-	CJugador(int x, int y) {
+	CJugador4(int x, int y) {
+
+		i = 13;
+		j = 1;
 
 		//Posición de jugador
 		this->x = x;
 		this->y = y;
-	
+
 		//Movimiento jugador inicializado en 0
 		dx = 0;
 		dy = 0;
-		acelerar = rand()%5 +1   ;
+		acelerar = rand() % 5 + 1;
 		//Dimensiones de los sprites 
 		ancho = 18;
 		alto = 26;
@@ -38,13 +42,13 @@ public:
 		/// </summary>
 		/// <param name="x"></param>
 		/// <param name="y"></param>
-		direccion = Direcciones::Ninguna;
-		ultima = Direcciones::Abajo;
+		direccion4 = Direcciones4::Ninguna4;
+		ultima4 = Direcciones4::Abajo4;
 		//cantidad de vidas iniciales
 		vidas = rand() % 6 + 5;
 	}
 
-	~CJugador() {}
+	~CJugador4() {}
 
 	/// <summary>
 	/// Funcion que retorna el área que abarca el jugador
@@ -90,14 +94,6 @@ public:
 		this->dx = dx;
 	}
 
-/// <summary>
-/// Método que determina el movimiento en x del jugador
-/// </summary>
-/// <param name="dx"></param>
-	void setDY(int dy) {
-		this->dy = dy;
-	}
-
 	void setX(int x) {
 		this->x = x;
 	}
@@ -106,36 +102,28 @@ public:
 		this->y = y;
 	}
 
-	void setIndiceY(int indiceY) {
-		this->indiceY = indiceY;
-	}
-
-	void setIndiceX(int indiceX) {
-		this->indiceX = indiceX;
-	}
-
-	void setAncho(int ancho) {
-		this->ancho = ancho;
-	}
-
-	void setAlto(int alto) {
-		this->alto = alto;
+	/// <summary>
+	/// Método que determina el movimiento en x del jugador
+	/// </summary>
+	/// <param name="dx"></param>
+	void setDY(int dy) {
+		this->dy = dy;
 	}
 
 	/// <summary>
 	/// Método que retorna la direccion actual del jugador
 	/// </summary>
 	/// <returns></returns>
-	Direcciones getDireccion() {
-		return direccion;
+	Direcciones4 getDireccion() {
+		return direccion4;
 	}
 
 	/// <summary>
 	/// Método que define la direccion actial del jugador
 	/// </summary>
 	/// <param name="direccion"></param>
-	void setDireccion(Direcciones direccion) {
-		this->direccion = direccion;
+	void setDireccion(Direcciones4 direccion4) {
+		this->direccion4 = direccion4;
 
 	}
 
@@ -170,7 +158,7 @@ public:
 
 	void disminuirVidas() {
 		x = 50;
-		y = 50;//Cuando el jugador pierde una vida, se devuelve al inicio del mapa
+		y = 600; //Cuando el jugador pierde una vida, se devuelve al inicio del mapa
 		vidas--;
 
 	}
@@ -185,23 +173,23 @@ public:
 	/// <param name="PuntaInferior"></param>
 	/// <param name="CentroInicioX"></param>
 	/// <param name="CentroFinalX"></param>
- 
-	
+
+
 	void disminuirVidas(int PuntaIzquierda, int puntaDerecha, int CentroInicioY, int CentroFinalY,
 		int PuntaSuperior, int PuntaInferior, int CentroInicioX, int CentroFinalX) {
 
 		if (getX() >= PuntaIzquierda && getX() <= puntaDerecha && getY() >= CentroInicioY && getY() <= CentroFinalY) {
 
 			x = 50;
-			y = 50;
+			y = 600;
 			vidas--;
 
 		}
 
-		if (getY() >= PuntaSuperior && getY() <= PuntaInferior && getX() >= CentroInicioX && getX() <= CentroFinalX  )
+		if (getY() >= PuntaSuperior && getY() <= PuntaInferior && getX() >= CentroInicioX && getX() <= CentroFinalX)
 		{
 			x = 50;
-			y = 50;
+			y = 600;
 			vidas--;
 		}
 
@@ -214,7 +202,7 @@ public:
 	/// <param name="g"></param>
 	/// <param name="bmpJugador"></param>
 	/// <param name="matriz"></param>
-	void dibujarJugador(Graphics^g, Bitmap^bmpJugador, int **matriz, Bitmap^bmpBase){
+	void dibujarJugador(Graphics^ g, Bitmap^ bmpJugador4, int** matriz, Bitmap^ bmpBase) {
 
 		CDI = Rectangle(x + 2 * 3 + dx, y + 15 * 3, (ancho - 4) * 3, (alto - 15) * 3); //Se dibuja el rectángulo del área del jugador con el movimiento x
 		g->DrawRectangle(Pens::Transparent, CDI);// Se hace transparente para que no se vea
@@ -224,22 +212,21 @@ public:
 
 
 		ValidarMovimiento(matriz);; //Se valida el movimiento según los bloques del mapa
-		Rectangle PorcionAlusar = Rectangle(indiceX*ancho, indiceY*alto, ancho, alto);//Se define la porcion a usar de los sprites
-		Rectangle Aumento = Rectangle(x, y, ancho*3, alto*3);///Se aumenta el sprite para adecuarlo al mapa
 
-
-		g->DrawImage(bmpJugador, Aumento, PorcionAlusar, GraphicsUnit::Pixel );//Se dibuja el jugador
+		Rectangle PorcionAlusar = Rectangle(indiceX * ancho, indiceY * alto, ancho, alto);//Se define la porcion a usar de los sprites
+		Rectangle Aumento = Rectangle(x, y, ancho * 3, alto * 3);///Se aumenta el sprite para adecuarlo al mapa
+		g->DrawImage(bmpJugador4, Aumento, PorcionAlusar, GraphicsUnit::Pixel);//Se dibuja el jugador
 		x += dx;//Se cambia la posicion x de acuerdo al movimiento
 		y += dy; //Se cambia la posicion y de acuerdo al movimiento
 
-		if (vidas <1) {
+		if (vidas < 1) {
 
-			
+
 			ancho = 10;
 			alto = 10;
-			g->DrawImage(bmpBase,Aumento,PorcionAlusar, GraphicsUnit::Pixel);
+			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
 			vidas = 0;
-			
+
 
 		}
 
@@ -250,120 +237,62 @@ public:
 
 	}
 
+	void movimientoIA(Graphics^ g, Bitmap^ bmpJugador2, Bitmap^ bmpBase, int** matriz) {
+
+
+		CDI = Rectangle(x + 2 * 3 + dx, y + 15 * 3, (ancho - 4) * 3, (alto - 15) * 3); //Se dibuja el rectángulo del área del jugador con el movimiento x
+		g->DrawRectangle(Pens::Transparent, CDI);// Se hace transparente para que no se vea
+
+		CAA = Rectangle(x + 2 * 3, y + 15 * 3 + dy, (ancho - 4) * 3, (alto - 15) * 3);//Se dibuja el rectángulo del área del jugador con el movimiento y
+		g->DrawRectangle(Pens::Transparent, CAA);// Se hace transparente para que no se vea
+
+
+		ValidarMovimiento(matriz);; //Se valida el movimiento según los bloques del mapa
+
+		Rectangle PorcionAlusar = Rectangle(indiceX * ancho, indiceY * alto, ancho, alto);//Se define la porcion a usar de los sprites
+		Rectangle Aumento = Rectangle(x, y, ancho * 3, alto * 3);///Se aumenta el sprite para adecuarlo al mapa
+		g->DrawImage(bmpJugador2, Aumento, PorcionAlusar, GraphicsUnit::Pixel);//Se dibuja el jugador
+
+		x += dx;//Se cambia la posicion x de acuerdo al movimiento
+		y += dy; //Se cambia la posicion y de acuerdo al movimiento
+
+		dy -= 0.5;
+
+		indiceY = 0;
+
+		if (vidas < 1) {
+
+
+			ancho = 10;
+			alto = 10;
+			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
+			vidas = 0;
+
+
+		}
+
+		else {
+			ancho = 18;
+			alto = 26;
+		}
+
+
+
+	}
+
 	/// <summary>
 	/// Método que mueve al jugador
 	/// </summary>
 	/// <param name="g"></param>
 	/// <param name="bmpJugador"></param>
 	/// <param name="matriz"></param>
-	void moverJugador(Graphics^ g, Bitmap^ bmpJugador, int** matriz, Bitmap^bmpBase){
+	void moverJugador(Graphics^ g, Bitmap^ bmpJugador4, int** matriz, Bitmap^ bmpBase) {
 
-		direccion == Arriba ? ancho = 17 : ancho = 18;
+		direccion4 == Arriba4 ? ancho = 17 : ancho = 18;
 
-		switch (direccion)//Se hace un switch para los posibles casos de movimiento
+		switch (direccion4)//Se hace un switch para los posibles casos de movimiento
 		{
-		case Arriba:
-
-			indiceY = 0;
-			if (indiceX >= 1 && indiceX < 3) //Si se va hacia arriba, se cambian los índices de los sprites para moverlo
-				indiceX++;
-
-			else
-				indiceX = 1;
-			dx = 0;
-			dy = -10-acelerar; //Se redefine el movimiento y se resta en y para subir
-			ultima = Arriba; //Se define la ultima posición para lograr detenerse
-
-			break;
-
-		case Abajo:
-
-			indiceX = 0;
-			if (indiceY >= 1 && indiceY < 3) //Si se mueve hacia abajo se validan los indices de los sprites y se cambian
-				indiceY++;
-
-			else
-				indiceY = 1;
-			dx = 0;
-			dy = 10+acelerar; //Se redefine el movimiento y se suma en y para subir
-			ultima = Abajo; //Se define la ultima posición para lograr detenerse
-
-			break;
-
-
-		case Izquierda:
-			indiceY = 3;
-
-			if (indiceX >= 1 && indiceX < 3)//Si se mueve hacia la izquierda se validan los indices de los sprites y se cambian
-				indiceX++;
-
-			else
-				indiceX = 1;
-			dx = -10-acelerar;//Se redefine el movimiento y se resta en x para subir
-			dy = 0;
-			ultima = Izquierda; //Se define la ultima posición para lograr detenerse
-
-			break;
-
-		case Derecha:
-			indiceY = 1;
-			if (indiceX >= 1 && indiceX < 3)//Si se mueve hacia la derecha se validan los indices de los sprites y se cambian
-				indiceX++;
-
-			else
-				indiceX = 1;
-			dx = 10+acelerar;//Se redefine el movimiento y se suma en x para subir
-			dy = 0;
-			ultima = Derecha; //Se define la ultima posición para lograr detenerse
-
-			break;
-
-		case Ninguna: //Se crea para parar el movimiento
-
-			dx = dy = 0; //Se hace 0 el cambio cuando está quieto
-
-			if (ultima == Direcciones::Abajo) { 
-
-				indiceX = 0;
-				indiceY = 2; //Si la ultima direccion es abajo, se define el sprite a utilizar
-			}
-
-			if (ultima == Direcciones::Arriba) {
-
-				indiceX = 0;
-				indiceY = 0;//Si la ultima direccion es arriba, se define el sprite a utilizar
-			}
-
-			if (ultima == Direcciones::Derecha) {
-
-				indiceX = 1;
-				indiceY = 1; //Si la ultima direccion es derecha, se define el sprite a utilizar
-			}
-
-			if (ultima == Direcciones::Izquierda) {
-
-				indiceX = 1;
-				indiceY = 3; //Si la ultima direccion es izquierda, se define el sprite a utilizar
-			}
-
-			break;
-
-		default:
-			break;
-		}
-		
-		dibujarJugador(g, bmpJugador, matriz, bmpBase); //Se dibuja el jugador y actualiza conforma va moviendose, por eso al final del método, luego de las validaciones de movimiento
-
-
-	}
-
-	void movimiento(Graphics^ g, Bitmap^ bmpJugador, int** matriz, Bitmap^ bmpBase) {
-
-		direccion == Arriba ? ancho = 17 : ancho = 18;
-
-		switch (direccion)//Se hace un switch para los posibles casos de movimiento
-		{
-		case Arriba:
+		case Arriba4:
 
 			indiceY = 0;
 			if (indiceX >= 1 && indiceX < 3) //Si se va hacia arriba, se cambian los índices de los sprites para moverlo
@@ -373,11 +302,11 @@ public:
 				indiceX = 1;
 			dx = 0;
 			dy = -10 - acelerar; //Se redefine el movimiento y se resta en y para subir
-			ultima = Arriba; //Se define la ultima posición para lograr detenerse
+			ultima4 = Arriba4; //Se define la ultima posición para lograr detenerse
 
 			break;
 
-		case Abajo:
+		case Abajo4:
 
 			indiceX = 0;
 			if (indiceY >= 1 && indiceY < 3) //Si se mueve hacia abajo se validan los indices de los sprites y se cambian
@@ -387,12 +316,12 @@ public:
 				indiceY = 1;
 			dx = 0;
 			dy = 10 + acelerar; //Se redefine el movimiento y se suma en y para subir
-			ultima = Abajo; //Se define la ultima posición para lograr detenerse
+			ultima4 = Abajo4; //Se define la ultima posición para lograr detenerse
 
 			break;
 
 
-		case Izquierda:
+		case Izquierda4:
 			indiceY = 3;
 
 			if (indiceX >= 1 && indiceX < 3)//Si se mueve hacia la izquierda se validan los indices de los sprites y se cambian
@@ -402,11 +331,11 @@ public:
 				indiceX = 1;
 			dx = -10 - acelerar;//Se redefine el movimiento y se resta en x para subir
 			dy = 0;
-			ultima = Izquierda; //Se define la ultima posición para lograr detenerse
+			ultima4 = Izquierda4; //Se define la ultima posición para lograr detenerse
 
 			break;
 
-		case Derecha:
+		case Derecha4:
 			indiceY = 1;
 			if (indiceX >= 1 && indiceX < 3)//Si se mueve hacia la derecha se validan los indices de los sprites y se cambian
 				indiceX++;
@@ -415,33 +344,33 @@ public:
 				indiceX = 1;
 			dx = 10 + acelerar;//Se redefine el movimiento y se suma en x para subir
 			dy = 0;
-			ultima = Derecha; //Se define la ultima posición para lograr detenerse
+			ultima4 = Derecha4; //Se define la ultima posición para lograr detenerse
 
 			break;
 
-		case Ninguna: //Se crea para parar el movimiento
+		case Ninguna4: //Se crea para parar el movimiento
 
 			dx = dy = 0; //Se hace 0 el cambio cuando está quieto
 
-			if (ultima == Direcciones::Abajo) {
+			if (ultima4 == Direcciones4::Abajo4){
 
 				indiceX = 0;
 				indiceY = 2; //Si la ultima direccion es abajo, se define el sprite a utilizar
 			}
 
-			if (ultima == Direcciones::Arriba) {
+			if (ultima4 == Direcciones4::Arriba4) {
 
 				indiceX = 0;
 				indiceY = 0;//Si la ultima direccion es arriba, se define el sprite a utilizar
 			}
 
-			if (ultima == Direcciones::Derecha) {
+			if (ultima4 == Direcciones4::Derecha4) {
 
 				indiceX = 1;
 				indiceY = 1; //Si la ultima direccion es derecha, se define el sprite a utilizar
 			}
 
-			if (ultima == Direcciones::Izquierda) {
+			if (ultima4 == Direcciones4::Izquierda4) {
 
 				indiceX = 1;
 				indiceY = 3; //Si la ultima direccion es izquierda, se define el sprite a utilizar
@@ -453,7 +382,7 @@ public:
 			break;
 		}
 
-		dibujarJugador(g, bmpJugador, matriz, bmpBase); //Se dibuja el jugador y actualiza conforma va moviendose, por eso al final del método, luego de las validaciones de movimiento
+		dibujarJugador(g, bmpJugador4, matriz, bmpBase); //Se dibuja el jugador y actualiza conforma va moviendose, por eso al final del método, luego de las validaciones de movimiento
 
 
 	}
@@ -474,27 +403,29 @@ public:
 		acelerar = v;
 	}
 
-/// <summary>
-/// Definición de los atributos del jugador
-/// </summary>
+	/// <summary>
+	/// Definición de los atributos del jugador
+	/// </summary>
 
 private:
 
+	int i;
+	int j;
 	int x;
 	int y;
 	int dx;
-	int dy;
+	float dy;
 	int ancho;
 	int alto;
 	int indiceX;
 	int indiceY;
 	int acelerar;
 
-	Direcciones direccion;
-	Direcciones ultima;
+	Direcciones4 direccion4;
+	Direcciones4 ultima4;
 
 	Rectangle CDI;
-	Rectangle CAA; 
+	Rectangle CAA;
 
 	int vidas;
 
@@ -502,4 +433,4 @@ private:
 
 
 
-#endif // !__JUGADOR_H__
+#endif // !__JUGADOR4_H__

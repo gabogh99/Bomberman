@@ -1,39 +1,186 @@
-﻿  Juego.cpp
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Jugar.cpp
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(39,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(39,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(61,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(82,33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(97,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(105,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(211,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(214,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(223,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(224,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(247,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(250,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(260,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(261,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(263,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(310,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(324,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(338,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(351,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(58,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(79,33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(94,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(102,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(207,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(210,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(219,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(220,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(222,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(245,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(248,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(258,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(259,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(261,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(304,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(318,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(332,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(345,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(79,33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(110,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(210,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(220,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(246,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(257,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(304,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(318,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(353,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(34,28): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas2.h(34,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas2.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas3.h(34,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas3.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas4.h(34,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas4.h(52,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(18,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrMejoras.h(34,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(19,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44,17): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(62,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(82,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(114,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(217,98): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(108,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(148,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(180,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(212,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(245,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(277,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(310,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(343,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(375,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(407,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(439,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(472,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(504,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(537,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(570,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(603,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(638,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(674,22): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(265,97): warning C4018: '<': signed/unsigned mismatch
   MenuPrincipal.cpp
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(41,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(39,14): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Escenario.h(39,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(61,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(82,33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(97,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(105,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(211,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(214,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(223,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(224,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(247,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(250,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(260,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(261,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(263,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(310,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(324,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(338,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador2.h(351,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(58,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(79,33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(94,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(102,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(207,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(210,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(219,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(220,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(222,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(245,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(248,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(258,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(259,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(261,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(304,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(318,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(332,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador3.h(345,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(79,33): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(110,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(210,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(220,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(246,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(257,1): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(304,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(318,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugador4.h(353,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(34,28): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas2.h(34,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas2.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas3.h(34,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas3.h(52,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas4.h(34,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrBombas4.h(52,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(18,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(42,42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\Mejora.h(82,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrMejoras.h(34,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Enemigo.h(19,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44,17): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(62,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(82,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(114,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(217,98): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(104,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(141,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(172,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(203,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(235,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(266,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(298,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(330,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(361,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(392,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(423,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(455,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(486,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(518,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(550,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(582,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(616,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora.h(650,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(181,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(193,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(203,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(213,4): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Juego.h(405,96): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(108,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(148,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(180,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(212,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(245,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(277,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(310,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(343,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(375,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(407,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(439,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(472,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(504,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(537,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(570,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(603,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(638,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Controladora2.h(674,22): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Familia\source\repos\Bomberman\Bomberman\Jugar.h(265,97): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44): warning C4700: uninitialized local variable 'i' used
-C:\Users\Familia\source\repos\Bomberman\Bomberman\ArrEnemigos.h(44): warning C4700: uninitialized local variable 'i' used
   Juego.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Bomberman.vcxproj -> C:\Users\Familia\source\repos\Bomberman\Debug\Bomberman.exe
