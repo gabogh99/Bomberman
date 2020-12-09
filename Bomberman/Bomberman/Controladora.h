@@ -645,6 +645,10 @@ public:
 
 	}
 
+	/// <summary>
+/// Método para adquirir power-ups
+/// </summary>
+
 	void agarrarMejoras2() {
 
 		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
@@ -667,6 +671,82 @@ public:
 					break;
 				case 5: // Vidas
 					oJugador2->setVidas(oJugador->getVidas() + 1); // Se aumenta en  uno la vida
+					break;
+				default:
+					break;
+				}
+				oArrMejoras->eliminarenpos(i); //Se elimina el powerup en la posicion que se encuentre en el array
+
+
+			}
+		}
+
+	}
+
+	/// <summary>
+/// Método para adquirir power-ups
+/// </summary>
+
+	void agarrarMejoras3() {
+
+		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
+		{
+			if (oJugador3->retornarRectangulo().IntersectsWith(oArrMejoras->getvector_mejoras().at(i)->devolverR())) { // Si la posicion del jugador interseca con la posicion de mejoras empieza a funcionar
+
+				switch (oArrMejoras->getvector_mejoras().at(i)->getTipo_de_mejora()) //Se realiza un switch para validar todas las mejoras que hay
+				{
+				case 1: //Agregar una bomba
+					oArrBombas->setBombas(oArrBombas->getBombas() + 1); //Al agarrar esta se aumenta la cantidad de bombas que se pueden tirar 
+					break;
+				case 2://Mover una bomba
+					 //Permite mover una bomba ya colocada
+					break;
+				case 3: // Calavera
+					oJugador3->setVidas(oJugador->getVidas() - 1); //Al agarrarla se disminuye la vida
+					break;
+				case 4: //Patines
+					oJugador3->setAcelerar(oJugador->getAcelerar() + 3); // Se activa el método acelerar y el jugador aumenta la velocidad x3
+					break;
+				case 5: // Vidas
+					oJugador3->setVidas(oJugador->getVidas() + 1); // Se aumenta en  uno la vida
+					break;
+				default:
+					break;
+				}
+				oArrMejoras->eliminarenpos(i); //Se elimina el powerup en la posicion que se encuentre en el array
+
+
+			}
+		}
+
+	}
+
+	/// <summary>
+/// Método para adquirir power-ups
+/// </summary>
+
+	void agarrarMejoras4() {
+
+		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
+		{
+			if (oJugador4->retornarRectangulo().IntersectsWith(oArrMejoras->getvector_mejoras().at(i)->devolverR())) { // Si la posicion del jugador interseca con la posicion de mejoras empieza a funcionar
+
+				switch (oArrMejoras->getvector_mejoras().at(i)->getTipo_de_mejora()) //Se realiza un switch para validar todas las mejoras que hay
+				{
+				case 1: //Agregar una bomba
+					oArrBombas->setBombas(oArrBombas->getBombas() + 1); //Al agarrar esta se aumenta la cantidad de bombas que se pueden tirar 
+					break;
+				case 2://Mover una bomba
+					 //Permite mover una bomba ya colocada
+					break;
+				case 3: // Calavera
+					oJugador4->setVidas(oJugador->getVidas() - 1); //Al agarrarla se disminuye la vida
+					break;
+				case 4: //Patines
+					oJugador4->setAcelerar(oJugador->getAcelerar() + 3); // Se activa el método acelerar y el jugador aumenta la velocidad x3
+					break;
+				case 5: // Vidas
+					oJugador4->setVidas(oJugador->getVidas() + 1); // Se aumenta en  uno la vida
 					break;
 				default:
 					break;
@@ -724,7 +804,10 @@ public:
 		disminuir_Vidas_Por_Bomba14();
 		disminuir_Vidas_Por_Bomba15();
 		disminuir_Vidas_Por_Bomba16();
+
 		agarrarMejoras();
+		agarrarMejoras2();
+		agarrarMejoras3();
 
 	}
 

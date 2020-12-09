@@ -427,6 +427,7 @@ public:
 				oJugador->setDY(0);
 			}
 
+
 		}
 
 	}
@@ -629,6 +630,20 @@ public:
 
 	}
 
+
+	void Disminucion() {
+
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo()) || oJugador->retornarRectangulo().IntersectsWith(oJugador3->retornarRectangulo()) || oJugador->retornarRectangulo().IntersectsWith(oJugador4->retornarRectangulo())) {
+
+			oJugador->disminuirVidas();
+		}
+
+
+
+
+
+	}
+
 	/// <summary>
 	/// Método para adquirir power-ups
 	/// </summary>
@@ -667,14 +682,7 @@ public:
 
 	}
 
-	void validaciones() {
 
-		if (oJugador->getX() == oJugador3->getX()) {
-			oJugador3->setDY(0);
-			oJugador3->setDX(-0.15);
-		}
-
-	}
 
 
 	/// <summary>
@@ -726,8 +734,8 @@ public:
 		disminuir_Vidas_Por_Bomba16();
 		agarrarMejoras();
 
-		validaciones();
 
+		Disminucion();
 	}
 
 	/// <summary>

@@ -86,5 +86,8 @@
     <ClInclude Include="Controladora2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Enemigo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

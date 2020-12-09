@@ -136,6 +136,7 @@
     <ClInclude Include="Bomba4.h" />
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="Controladora2.h" />
+    <ClInclude Include="Enemigo.h" />
     <ClInclude Include="Escenario.h" />
     <ClInclude Include="Juego.h">
       <FileType>CppForm</FileType>
