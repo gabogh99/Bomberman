@@ -1,6 +1,7 @@
 #pragma once
 #include"Juego.h"
 #include"Jugar.h"
+#include "Cooperativo.h"
 
 namespace Bomberman {
 
@@ -55,6 +56,7 @@ namespace Bomberman {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Button^ btnJugar;
+	private: System::Windows::Forms::Button^ btnCoop;
 
 	private:
 		/// <summary>
@@ -79,6 +81,8 @@ namespace Bomberman {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->btnJugar = (gcnew System::Windows::Forms::Button());
+			this->btnCoop = (gcnew System::Windows::Forms::Button());
+
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -96,7 +100,7 @@ namespace Bomberman {
 			// 
 			// btnInstrucionesAparecer
 			// 
-			this->btnInstrucionesAparecer->Location = System::Drawing::Point(145, 285);
+			this->btnInstrucionesAparecer->Location = System::Drawing::Point(145, 305);
 			this->btnInstrucionesAparecer->Name = L"btnInstrucionesAparecer";
 			this->btnInstrucionesAparecer->Size = System::Drawing::Size(91, 23);
 			this->btnInstrucionesAparecer->TabIndex = 2;
@@ -177,6 +181,17 @@ namespace Bomberman {
 			this->btnJugar->Text = L"Multijugador";
 			this->btnJugar->UseVisualStyleBackColor = true;
 			this->btnJugar->Click += gcnew System::EventHandler(this, &MenuPrincipal::btnJugar_Click);
+			//
+			//btnCoop
+			//
+			this->btnCoop->Location = System::Drawing::Point(145, 400);
+			this->btnCoop->Name = L"btnCoop";
+			this->btnCoop->Size = System::Drawing::Size(91, 23);
+			this->btnCoop->TabIndex = 10;
+			this->btnCoop->Text = L"Cooperativo";
+			this->btnCoop->UseVisualStyleBackColor = true;
+			this->btnCoop->Click += gcnew System::EventHandler(this, &MenuPrincipal::btnCoop_Click);
+			
 			// 
 			// MenuPrincipal
 			// 
@@ -192,6 +207,7 @@ namespace Bomberman {
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->btnCoop);
 			this->Name = L"MenuPrincipal";
 			this->Text = L"MenuPrincipal";
 			this->Load += gcnew System::EventHandler(this, &MenuPrincipal::MenuPrincipal_Load);
@@ -231,7 +247,13 @@ private: System::Void btnInstrucionesAparecer_Click(System::Object^ sender, Syst
 	Jugar^ frame = gcnew Jugar();// Se crea el juego
 	this->Visible = false;
 	frame->Show();;
+}
 
+private: System::Void btnCoop_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	Cooperativo^ frame2 = gcnew Cooperativo();// Se crea el juego
+	this->Visible = false;
+	frame2->Show();;
 }
 
 /// <summary>

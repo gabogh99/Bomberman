@@ -24,6 +24,9 @@
     <ClCompile Include="Jugar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cooperativo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -86,7 +89,10 @@
     <ClInclude Include="Controladora2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemigo.h">
+    <ClInclude Include="Cooperativo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controladora3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

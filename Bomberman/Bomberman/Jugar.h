@@ -169,10 +169,54 @@ namespace Bomberman {
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 		oControladora2->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpJugador2, bmpJugador3, bmpJugador4); //Se dibujan los bmp y se vuelven visuales en la ventana
 		this->Text = "              Vidas Jugador 1: " + oControladora2->getoJugador()->getVidas() + "                        Vidas Jugador 2: " + oControladora2->getoJugador2()->getVidas() + "                        Vidas Jugador 3: " + oControladora2->getoJugador3()->getVidas() + "                    Vidas Jugador 4: " + oControladora2->getoJugador4()->getVidas(); //Muestra la cantidad de vidas
+		if (oControladora2->getoJugador2()->getVidas() == 0 && oControladora2->getoJugador4()->getVidas() == 0 && oControladora2->getoJugador3()->getVidas() == 0 && oControladora2->getoJugador()->getVidas() != 0) {
+			this->Text = "																													Game Over:  Winner Player 1";
+			_sleep(3000);
+			oControladora2->getoJugador4()->setVidas(rand() % 6 + 5);
+			oControladora2->getoJugador2()->setVidas(rand() % 6 + 5);
+			oControladora2->getoJugador3()->setVidas(rand() % 6 + 5);
+			oControladora2->getoJugador()->setX(50);
+			oControladora2->getoJugador()->setY(50);
+
+			reiniciar();
+		}
+
+		if (oControladora2->getoJugador()->getVidas() == 0) {
+			this->Text = "																													Game Over: You Lost                             " ;
+			_sleep(3000);
+			oControladora2->getoJugador4()->setVidas(rand() % 6 + 5);
+			oControladora2->getoJugador2()->setVidas(rand() % 6 + 5);
+			oControladora2->getoJugador3()->setVidas(rand() % 6 + 5);
+			oControladora2->getoJugador()->setVidas(rand() % 6 + 5);
+			oControladora2->getoJugador()->setX(50);
+			oControladora2->getoJugador()->setY(50);
+			reiniciar();
+		}
+		
+		
+		
 		buffer->Render(g);
 		delete buffer, espacio, g;
 
 	}
+
+
+		   void reiniciar() {
+
+			   oControladora2->CambiarNivel();
+			   Graphics^ g = this->CreateGraphics();
+			   BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
+			   BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
+			   oControladora2->dibujar(buffer->Graphics, bmpSuelo, bmpDestruible, bmpSolido, bmpJugador, bmpBomba, bmpExplosion, bmpMejoras, bmpJugador2, bmpJugador3, bmpJugador4); //Se dibujan los bmp y se vuelven visuales en la ventana
+
+			   oControladora2->getoJugador2()->setX(750);
+			   oControladora2->getoJugador2()->setY(20);
+			   oControladora2->getoJugador3()->setX(750);
+			   oControladora2->getoJugador3()->setY(620);
+			   oControladora2->getoJugador4()->setX(50);
+			   oControladora2->getoJugador4()->setY(600);
+
+		   }
 
 		   /// <summary>
 		   /// Se carga el juego mostrando la barra de carga y el nivel actual
@@ -203,6 +247,11 @@ namespace Bomberman {
 		case Keys::Down:
 
 			oControladora2->getoJugador()->setDireccion(Direcciones::Abajo);//Cuando la tecla Down es tecleada realiza las funciones de la direccion abajo definida para el jugador
+			if (oControladora2->getoJugador()->retornarRectangulo().IntersectsWith(oControladora2->getoJugador2()->retornarRectangulo())) {
+
+				oControladora2->agregarBomba2();
+
+			}
 			break;
 
 
@@ -234,22 +283,17 @@ namespace Bomberman {
 
 		switch (e->KeyCode)
 		{
-
 		case Keys::Space:
 			oControladora2->agregarBomba(); // Cuando la tecla presionada es Space llama al metodo agregar bomba
 
 			break;
-
-
 		default:
-
 			oControladora2->getoJugador()->setDireccion(Direcciones::Ninguna); //Si no se presiona ninguna tecla el jugadore se detiene
-
-
 			break;
 		}
 
 
+		
 	}
 
 

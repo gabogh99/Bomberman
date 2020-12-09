@@ -1,5 +1,5 @@
-#ifndef __CONTROLADORA2_H__
-#define __CONTROLADORA2_H__
+#ifndef __CONTROLADORA3_H__
+#define __CONTROLADORA3_H__
 #include "Escenario.h"
 #include "Jugador.h"
 #include "Jugador2.h"
@@ -16,11 +16,11 @@
 /// Clase que controla todas las funciones del juego
 /// </summary>
 
-class CControladora2 {
+class CControladora3 {
 
 public:
 
-	CControladora2() {
+	CControladora3() {
 
 		/// <summary>
 		/// Se crean los objetos de todas clases incluidas
@@ -48,7 +48,7 @@ public:
 
 
 
-	~CControladora2() {}
+	~CControladora3() {}
 
 	/// <summary>
 	/// Método que genera matriz al cambiar de nivel
@@ -76,7 +76,7 @@ public:
 /// </summary>
 	void agregarBomba2() {
 
-		if(oJugador->getX()==oJugador2->getX() || oJugador->getX() == oJugador2->getX())
+		if (oJugador->getX() == oJugador2->getX() || oJugador->getX() == oJugador2->getX())
 			oArrBombas2->crear_una_bomba2(oJugador2->getX(), oJugador2->getY()); //Agarra una bomba del array y la coloca en las posiciones de x y y del jugador
 
 	}
@@ -633,12 +633,12 @@ public:
 
 	void Disminucion() {
 
-		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo()) ) {
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo())) {
 
 			oJugador->disminuirVidas();
 			oJugador2->disminuirVidas();
 			oJugador2->setDX(0);
-			
+
 		}
 
 		if (oJugador->retornarRectangulo().IntersectsWith(oJugador3->retornarRectangulo())) {
@@ -646,7 +646,7 @@ public:
 			oJugador->disminuirVidas();
 			oJugador3->disminuirVidas();
 			oJugador3->setDY(0);
-			
+
 
 		}
 
@@ -768,6 +768,7 @@ public:
 
 	}
 
+
 	void agarrarMejoras4() {
 
 		for (int i = 0; i < oArrMejoras->getvector_mejoras().size(); i++) //Se recorre el array de mejoras
@@ -804,7 +805,6 @@ public:
 
 
 
-
 	/// <summary>
 	/// Método para mostrar los bmps craedos en las respectivas clases
 	/// Se dibujan los distintos objetos anteriormente creados
@@ -825,10 +825,9 @@ public:
 		oArrMejoras->dibujar(g, bmpMejoras, oEscenario->getmatriz());
 		oEscenario->PintarMatriz(g, bmpSolido, bmpDestruible);
 		oJugador->moverJugador(g, bmpJugador, oEscenario->getmatriz(), bmpBase);
-
+		oJugador3->moverJugador(g, bmpJugador3, oEscenario->getmatriz(), bmpBase);
 
 		oJugador2->movimientoIA(g, bmpJugador2, bmpBase, oEscenario->getmatriz());
-		oJugador3->movimientoIA(g, bmpJugador3, bmpBase, oEscenario->getmatriz());
 		oJugador4->movimientoIA(g, bmpJugador4, bmpBase, oEscenario->getmatriz());
 
 		oArrBombas->Dibujar_una_bomba(g, bmpBomba, bmpExplosion, oJugador->getX(), oJugador->getY(), oEscenario->getmatriz());
@@ -857,7 +856,6 @@ public:
 		agarrarMejoras2();
 		agarrarMejoras3();
 		agarrarMejoras4();
-
 
 		Disminucion();
 	}
@@ -942,4 +940,4 @@ private:
 
 
 
-#endif // !__CONTROLADORA2_H__
+#endif // !__CONTROLADORA3_H__

@@ -120,6 +120,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cooperativo.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Jugar.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
@@ -136,7 +137,10 @@
     <ClInclude Include="Bomba4.h" />
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="Controladora2.h" />
-    <ClInclude Include="Enemigo.h" />
+    <ClInclude Include="Controladora3.h" />
+    <ClInclude Include="Cooperativo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Escenario.h" />
     <ClInclude Include="Juego.h">
       <FileType>CppForm</FileType>
@@ -154,6 +158,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Cooperativo.resx">
+      <DependentUpon>Cooperativo.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Juego.resx">
       <DependentUpon>Juego.h</DependentUpon>
     </EmbeddedResource>

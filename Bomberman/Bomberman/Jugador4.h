@@ -256,25 +256,26 @@ public:
 		x += dx;//Se cambia la posicion x de acuerdo al movimiento
 		y += dy; //Se cambia la posicion y de acuerdo al movimiento
 
-		dy -= 0.5;
+		
 
 		indiceY = 0;
 
-		if (vidas < 1) {
+			if (vidas < 1) {
 
 
-			ancho = 10;
-			alto = 10;
-			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
-			vidas = 0;
+				ancho = 10;
+				alto = 10;
+				g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
+				vidas = 0;
+				dy += 0;
 
+			}
 
-		}
-
-		else {
-			ancho = 18;
-			alto = 26;
-		}
+			else {
+				ancho = 18;
+				alto = 26;
+				dy -= 0.3;
+			}
 
 
 

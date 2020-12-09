@@ -158,7 +158,7 @@ public:
 
 	void disminuirVidas() {
 		x = 750;
-		y = 600;//Cuando el jugador pierde una vida, se devuelve al inicio del mapa
+		y = 620;//Cuando el jugador pierde una vida, se devuelve al inicio del mapa
 		vidas--;
 
 	}
@@ -181,7 +181,7 @@ public:
 		if (getX() >= PuntaIzquierda && getX() <= puntaDerecha && getY() >= CentroInicioY && getY() <= CentroFinalY) {
 
 			x = 750;
-			y = 600;
+			y = 620;
 			vidas--;
 
 		}
@@ -189,7 +189,7 @@ public:
 		if (getY() >= PuntaSuperior && getY() <= PuntaInferior && getX() >= CentroInicioX && getX() <= CentroFinalX)
 		{
 			x = 750;
-			y = 600;
+			y = 620;
 			vidas--;
 		}
 
@@ -258,7 +258,7 @@ public:
 		x += dx;//Se cambia la posicion x de acuerdo al movimiento
 		y += dy; //Se cambia la posicion y de acuerdo al movimiento
 
-		dy -= 0.3;
+		
 
 		if (vidas < 1) {
 
@@ -267,13 +267,14 @@ public:
 			alto = 10;
 			g->DrawImage(bmpBase, Aumento, PorcionAlusar, GraphicsUnit::Pixel);
 			vidas = 0;
-
+			dy += 0;
 
 		}
 
 		else {
 			ancho = 18;
 			alto = 26;
+			dx -= 0.3;
 		}
 
 
