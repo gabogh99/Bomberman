@@ -29,7 +29,7 @@ public:
 		oEscenario = new CEscenario();
 		oJugador = new CJugador(50, 50);
 		oJugador2 = new CJugador2(750, 20);
-		oJugador3 = new CJugador3(750, 600);
+		oJugador3 = new CJugador3(750, 620);
 		oJugador4 = new CJugador4(50, 600);
 
 
@@ -633,12 +633,30 @@ public:
 
 	void Disminucion() {
 
-		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo()) || oJugador->retornarRectangulo().IntersectsWith(oJugador3->retornarRectangulo()) || oJugador->retornarRectangulo().IntersectsWith(oJugador4->retornarRectangulo())) {
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador2->retornarRectangulo()) ) {
 
 			oJugador->disminuirVidas();
+			oJugador2->disminuirVidas();
+			oJugador2->setDX(0);
+			
 		}
 
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador3->retornarRectangulo())) {
 
+			oJugador->disminuirVidas();
+			oJugador3->disminuirVidas();
+			oJugador3->setDY(0);
+			
+
+		}
+
+		if (oJugador->retornarRectangulo().IntersectsWith(oJugador4->retornarRectangulo())) {
+
+			oJugador->disminuirVidas();
+			oJugador4->disminuirVidas();
+			oJugador4->setDY(0);
+
+		}
 
 
 
