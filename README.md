@@ -14,4 +14,4 @@ Aparte de tener que instalar el workload tambien debemos descargar el .NET frame
 
 Luego de haber instalado el .NET Framework, abrir la solucion(archivo .sln) con Visual Studio la cual se encuentra en la carpeta Bomberman
 
-`Bomberman\Bommberman.sln`
+`Bomberman\Bomberman.sln`
